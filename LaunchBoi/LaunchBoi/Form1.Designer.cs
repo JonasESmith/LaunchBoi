@@ -132,9 +132,9 @@
       // addNewAppBottomPanel
       // 
       this.addNewAppBottomPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.addNewAppBottomPanel.Location = new System.Drawing.Point(0, 410);
+      this.addNewAppBottomPanel.Location = new System.Drawing.Point(0, 207);
       this.addNewAppBottomPanel.Name = "addNewAppBottomPanel";
-      this.addNewAppBottomPanel.Size = new System.Drawing.Size(984, 303);
+      this.addNewAppBottomPanel.Size = new System.Drawing.Size(984, 506);
       this.addNewAppBottomPanel.TabIndex = 12;
       // 
       // addNewAppTopPanel
@@ -148,7 +148,7 @@
       this.addNewAppTopPanel.Dock = System.Windows.Forms.DockStyle.Top;
       this.addNewAppTopPanel.Location = new System.Drawing.Point(0, 0);
       this.addNewAppTopPanel.Name = "addNewAppTopPanel";
-      this.addNewAppTopPanel.Size = new System.Drawing.Size(984, 410);
+      this.addNewAppTopPanel.Size = new System.Drawing.Size(984, 207);
       this.addNewAppTopPanel.TabIndex = 11;
       // 
       // panel2
@@ -191,17 +191,17 @@
       // 
       this.pathTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
       this.pathTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.pathTextBox.Location = new System.Drawing.Point(400, 0);
+      this.pathTextBox.Location = new System.Drawing.Point(427, 0);
       this.pathTextBox.Multiline = true;
       this.pathTextBox.Name = "pathTextBox";
-      this.pathTextBox.Size = new System.Drawing.Size(366, 30);
+      this.pathTextBox.Size = new System.Drawing.Size(339, 30);
       this.pathTextBox.TabIndex = 3;
       // 
       // appPathLabel
       // 
       this.appPathLabel.Dock = System.Windows.Forms.DockStyle.Left;
       this.appPathLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.appPathLabel.Location = new System.Drawing.Point(324, 0);
+      this.appPathLabel.Location = new System.Drawing.Point(351, 0);
       this.appPathLabel.Name = "appPathLabel";
       this.appPathLabel.Size = new System.Drawing.Size(76, 30);
       this.appPathLabel.TabIndex = 2;
@@ -211,7 +211,7 @@
       // panel4
       // 
       this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-      this.panel4.Location = new System.Drawing.Point(293, 0);
+      this.panel4.Location = new System.Drawing.Point(320, 0);
       this.panel4.Name = "panel4";
       this.panel4.Size = new System.Drawing.Size(31, 30);
       this.panel4.TabIndex = 7;
@@ -223,7 +223,7 @@
       this.appNameTextBox.Location = new System.Drawing.Point(85, 0);
       this.appNameTextBox.Multiline = true;
       this.appNameTextBox.Name = "appNameTextBox";
-      this.appNameTextBox.Size = new System.Drawing.Size(208, 30);
+      this.appNameTextBox.Size = new System.Drawing.Size(235, 30);
       this.appNameTextBox.TabIndex = 1;
       // 
       // newAppNameLabel
@@ -274,9 +274,9 @@
             "minutes",
             "hours",
             "days"});
-      this.comboBox2.Location = new System.Drawing.Point(184, 0);
+      this.comboBox2.Location = new System.Drawing.Point(194, 0);
       this.comboBox2.Name = "comboBox2";
-      this.comboBox2.Size = new System.Drawing.Size(110, 28);
+      this.comboBox2.Size = new System.Drawing.Size(126, 28);
       this.comboBox2.TabIndex = 9;
       // 
       // comboBox1
@@ -343,8 +343,9 @@
             "56",
             "57",
             "58",
-            "59"});
-      this.comboBox1.Location = new System.Drawing.Point(102, 0);
+            "59",
+            "60"});
+      this.comboBox1.Location = new System.Drawing.Point(112, 0);
       this.comboBox1.Name = "comboBox1";
       this.comboBox1.Size = new System.Drawing.Size(82, 28);
       this.comboBox1.TabIndex = 8;
@@ -355,10 +356,10 @@
       this.intervalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.intervalLabel.Location = new System.Drawing.Point(0, 0);
       this.intervalLabel.Name = "intervalLabel";
-      this.intervalLabel.Size = new System.Drawing.Size(102, 30);
+      this.intervalLabel.Size = new System.Drawing.Size(112, 30);
       this.intervalLabel.TabIndex = 6;
-      this.intervalLabel.Text = "launch every ";
-      this.intervalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.intervalLabel.Text = "Launch Every";
+      this.intervalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       // 
       // topBufferPanel
       // 
@@ -430,9 +431,9 @@
       // panel9
       // 
       this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.panel9.Location = new System.Drawing.Point(294, 0);
+      this.panel9.Location = new System.Drawing.Point(320, 0);
       this.panel9.Name = "panel9";
-      this.panel9.Size = new System.Drawing.Size(472, 30);
+      this.panel9.Size = new System.Drawing.Size(446, 30);
       this.panel9.TabIndex = 10;
       // 
       // panel6
@@ -481,6 +482,7 @@
       // 
       // ColorPanel
       // 
+      this.ColorPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.ColorPanel.Dock = System.Windows.Forms.DockStyle.Left;
       this.ColorPanel.Location = new System.Drawing.Point(119, 0);
       this.ColorPanel.Name = "ColorPanel";
@@ -491,7 +493,7 @@
       // 
       this.redColorTExt.Dock = System.Windows.Forms.DockStyle.Left;
       this.redColorTExt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.redColorTExt.Location = new System.Drawing.Point(241, 0);
+      this.redColorTExt.Location = new System.Drawing.Point(244, 0);
       this.redColorTExt.MaxLength = 3;
       this.redColorTExt.Multiline = true;
       this.redColorTExt.Name = "redColorTExt";
@@ -504,20 +506,20 @@
       // 
       this.redLabel.Dock = System.Windows.Forms.DockStyle.Left;
       this.redLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.redLabel.Location = new System.Drawing.Point(231, 0);
+      this.redLabel.Location = new System.Drawing.Point(214, 0);
       this.redLabel.Name = "redLabel";
-      this.redLabel.Size = new System.Drawing.Size(10, 30);
+      this.redLabel.Size = new System.Drawing.Size(30, 30);
       this.redLabel.TabIndex = 4;
-      this.redLabel.Text = "R:";
+      this.redLabel.Text = "R";
       this.redLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
       // greenLabel
       // 
       this.greenLabel.Dock = System.Windows.Forms.DockStyle.Left;
       this.greenLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.greenLabel.Location = new System.Drawing.Point(286, 0);
+      this.greenLabel.Location = new System.Drawing.Point(289, 0);
       this.greenLabel.Name = "greenLabel";
-      this.greenLabel.Size = new System.Drawing.Size(13, 30);
+      this.greenLabel.Size = new System.Drawing.Size(30, 30);
       this.greenLabel.TabIndex = 6;
       this.greenLabel.Text = "G";
       this.greenLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -526,7 +528,7 @@
       // 
       this.greenColorText.Dock = System.Windows.Forms.DockStyle.Left;
       this.greenColorText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.greenColorText.Location = new System.Drawing.Point(299, 0);
+      this.greenColorText.Location = new System.Drawing.Point(319, 0);
       this.greenColorText.MaxLength = 3;
       this.greenColorText.Multiline = true;
       this.greenColorText.Name = "greenColorText";
@@ -539,9 +541,9 @@
       // 
       this.blueLabel.Dock = System.Windows.Forms.DockStyle.Left;
       this.blueLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.blueLabel.Location = new System.Drawing.Point(344, 0);
+      this.blueLabel.Location = new System.Drawing.Point(364, 0);
       this.blueLabel.Name = "blueLabel";
-      this.blueLabel.Size = new System.Drawing.Size(13, 30);
+      this.blueLabel.Size = new System.Drawing.Size(30, 30);
       this.blueLabel.TabIndex = 8;
       this.blueLabel.Text = "B";
       this.blueLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -550,7 +552,7 @@
       // 
       this.blueColorText.Dock = System.Windows.Forms.DockStyle.Left;
       this.blueColorText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.blueColorText.Location = new System.Drawing.Point(357, 0);
+      this.blueColorText.Location = new System.Drawing.Point(394, 0);
       this.blueColorText.MaxLength = 3;
       this.blueColorText.Multiline = true;
       this.blueColorText.Name = "blueColorText";
@@ -562,9 +564,9 @@
       // colorPadding
       // 
       this.colorPadding.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.colorPadding.Location = new System.Drawing.Point(402, 0);
+      this.colorPadding.Location = new System.Drawing.Point(439, 0);
       this.colorPadding.Name = "colorPadding";
-      this.colorPadding.Size = new System.Drawing.Size(318, 30);
+      this.colorPadding.Size = new System.Drawing.Size(281, 30);
       this.colorPadding.TabIndex = 9;
       // 
       // panel8
@@ -572,7 +574,7 @@
       this.panel8.Dock = System.Windows.Forms.DockStyle.Left;
       this.panel8.Location = new System.Drawing.Point(204, 0);
       this.panel8.Name = "panel8";
-      this.panel8.Size = new System.Drawing.Size(27, 30);
+      this.panel8.Size = new System.Drawing.Size(10, 30);
       this.panel8.TabIndex = 10;
       // 
       // mainForm

@@ -104,9 +104,7 @@ namespace LaunchBoi
         }
       }
 
-
-      if (!string.IsNullOrEmpty(redColorTExt.Text) && !string.IsNullOrEmpty(blueColorText.Text) && !string.IsNullOrEmpty(greenColorText.Text))
-        ColorPanel.BackColor = Color.FromArgb(red, green, blue);
+      ColorPanel.BackColor = Color.FromArgb(red, green, blue);
     }
   }
 }

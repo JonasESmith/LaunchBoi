@@ -1,0 +1,10 @@
+C:\Users\Jonas\Desktop\gitProj\LaunchBoi\LaunchBoi\LaunchBoi\bin\Debug\LaunchBoi.exe.config
+C:\Users\Jonas\Desktop\gitProj\LaunchBoi\LaunchBoi\LaunchBoi\bin\Debug\LaunchBoi.exe
+C:\Users\Jonas\Desktop\gitProj\LaunchBoi\LaunchBoi\LaunchBoi\bin\Debug\LaunchBoi.pdb
+C:\Users\Jonas\Desktop\gitProj\LaunchBoi\LaunchBoi\LaunchBoi\obj\Debug\LaunchBoi.csprojAssemblyReference.cache
+C:\Users\Jonas\Desktop\gitProj\LaunchBoi\LaunchBoi\LaunchBoi\obj\Debug\LaunchBoi.Properties.Resources.resources
+C:\Users\Jonas\Desktop\gitProj\LaunchBoi\LaunchBoi\LaunchBoi\obj\Debug\LaunchBoi.csproj.GenerateResource.cache
+C:\Users\Jonas\Desktop\gitProj\LaunchBoi\LaunchBoi\LaunchBoi\obj\Debug\LaunchBoi.csproj.CoreCompileInputs.cache
+C:\Users\Jonas\Desktop\gitProj\LaunchBoi\LaunchBoi\LaunchBoi\obj\Debug\LaunchBoi.exe
+C:\Users\Jonas\Desktop\gitProj\LaunchBoi\LaunchBoi\LaunchBoi\obj\Debug\LaunchBoi.pdb
+C:\Users\Jonas\Desktop\gitProj\LaunchBoi\LaunchBoi\LaunchBoi\obj\Debug\LaunchBoi.mainForm.resources

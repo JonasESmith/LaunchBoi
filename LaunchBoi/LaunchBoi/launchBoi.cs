@@ -15,6 +15,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using System.Diagnostics;
 
 namespace LaunchBoi
 {
@@ -46,22 +47,34 @@ namespace LaunchBoi
       TimeSpan second = TimeSpan.FromSeconds(1);
       TimeSpan zero   = TimeSpan.Zero;
 
-
       for (int i = 0; i < updateList.Count; i++) {
 
         updateList[i].interval   = updateList[i].interval.Subtract(second);
-        updateList[i].label.Text = updateList[i].interval.ToString();
+        updateList[i].countDownLabel.Text = updateList[i].interval.ToString();
 
         if (updateList[i].interval == zero) {
           RunApplication(appList[i]);
           updateList[i].interval = TimeSpan.FromSeconds(appList[i].getSeconds());
+          updateList[i].Iterate();
         }
       }
     }
 
     public bool RunApplication(AppStats app)
     {
+      ProcessStartInfo startInfo = new ProcessStartInfo();
+      startInfo.CreateNoWindow   = false;
+      startInfo.UseShellExecute  = false;
+      startInfo.FileName         = app.appPath;
 
+      try {
+        using (Process exeProcess = Process.Start(startInfo)) {
+          exeProcess.WaitForExit();
+        }
+      }
+      catch (Exception) {
+        throw;
+      }
 
       return true;
     }
@@ -76,6 +89,7 @@ namespace LaunchBoi
         appPanel.Height    = 100;
         appPanel.BackColor = Color.White;
         //appPanel.BorderStyle = BorderStyle.FixedSingle;
+        appPanel.Click += AppPanel_Click;
 
         Panel topPad     = new Panel();
         topPad.Dock      = DockStyle.Top;
@@ -98,6 +112,7 @@ namespace LaunchBoi
         topAppBar.Dock      = DockStyle.Top;
         topAppBar.Height    = (mainPanel.Height / 2);
         topAppBar.BackColor = SystemColors.Control;
+        topAppBar.Click    += AppPanel_Click;
         mainPanel.Controls.Add(topAppBar);
 
         Panel colorPanel     = new Panel();
@@ -112,20 +127,23 @@ namespace LaunchBoi
         Label nameLabel     = new Label();
         nameLabel.Font      = new Font(new FontFamily("Verdana"), 12);
         nameLabel.Text      = appList[i].appName;
+        nameLabel.Name      = i.ToString() + ",nameLabel";
         nameLabel.AutoSize  = false;
         nameLabel.TextAlign = ContentAlignment.MiddleLeft;
+        nameLabel.Click    += AppPanel_Click;
         nameLabel.Dock      = DockStyle.Fill;
 
         TimeSpan result     = TimeSpan.FromSeconds(appList[i].getSeconds());
 
         Label timeLabel     = new Label();
+        timeLabel.Name      = i.ToString() + ",timeLabel";
         timeLabel.Text      = result.ToString();
         timeLabel.Dock      = DockStyle.Right;
         timeLabel.AutoSize  = false;
         timeLabel.Width     = 60;
+        timeLabel.Click    += AppPanel_Click;
         timeLabel.TextAlign = ContentAlignment.MiddleCenter;
 
-        updateList.Add( new UpdateItems(timeLabel, result));
 
         topAppBar.Controls.Add(nameLabel);
         topAppBar.Controls.Add(padingPanel);
@@ -137,6 +155,7 @@ namespace LaunchBoi
         botAppBar.Height    = (mainPanel.Height / 2);
         botAppBar.BackColor = SystemColors.Control;
         botAppBar.Width     = mainPanel.Width;
+        botAppBar.Click    += AppPanel_Click;
 
         botAppBar.BackColor = SystemColors.Control;
 
@@ -144,6 +163,7 @@ namespace LaunchBoi
         topPad.Dock        = DockStyle.Top;
         topPad.Height      = 1;
         topPad.BackColor   = Color.DarkGray;
+        
 
         Panel leftTopPanel     = new Panel();
         leftTopPanel.Width     = 15;
@@ -161,18 +181,22 @@ namespace LaunchBoi
         botAppBar.Controls.Add(topPad);
 
         Label iterationLabel     = new Label();
-        iterationLabel.Text      = "iterations : 1043";
+        iterationLabel.Name      = i.ToString() + ",iterationLabel";
+        iterationLabel.Text      = "iterations : ";
         iterationLabel.Dock      = DockStyle.Right;
         iterationLabel.AutoSize  = false;
         iterationLabel.Width     = (int) (botAppBar.Width * 0.5);
         iterationLabel.TextAlign = ContentAlignment.MiddleCenter;
+        iterationLabel.Click    += AppPanel_Click;
 
         Label updateLabel     = new Label();
-        updateLabel.Text      = "updates : 23";
+        updateLabel.Name      = i.ToString() + ",updateLabel";
+        updateLabel.Text      = "updates : ";
         updateLabel.Dock      = DockStyle.Left;
         updateLabel.AutoSize  = false;
         updateLabel.Width     = (int)(botAppBar.Width * 0.5);
         updateLabel.TextAlign = ContentAlignment.MiddleCenter;
+        updateLabel.Click    += AppPanel_Click;
 
         Panel bottomStatPanel = new Panel();
         bottomStatPanel.Dock  = DockStyle.Fill;
@@ -185,6 +209,8 @@ namespace LaunchBoi
 
         mainPanel.Controls.Add(botAppBar);
 
+        updateList.Add( new UpdateItems(timeLabel, iterationLabel, result));
+
         Panel bottomHeightPanel  = new Panel();
         bottomHeightPanel.Height = 8;
         bottomHeightPanel.Dock   = DockStyle.Top;
@@ -192,6 +218,25 @@ namespace LaunchBoi
         appsRunningPanel.Controls.Add(bottomHeightPanel);
         appsRunningPanel.Controls.Add(appPanel);
       }
+    }
+
+    private void AppPanel_Click(object sender, EventArgs e)
+    {
+      Label label = sender as Label;
+
+      string[] words = label.Name.Split(',');
+
+      int index = Convert.ToInt32(words[0]);
+
+      appNameTextBox.Text   = appList[index].appName;
+      pathTextBox.Text      = appList[index].appPath;
+      timeComboBox.Text     = appList[index].appTime;
+      intervalComboBox.Text = appList[index].appInterval;
+      ColorPanel.BackColor  = appList[index].appColor;
+      redColorText.Text     = appList[index].appColor.R.ToString();
+      greenColorText.Text   = appList[index].appColor.G.ToString();
+      blueColorText.Text    = appList[index].appColor.B.ToString();
+      addAppButton.Text     = "Update App";
     }
 
     public void LoadStyles()
@@ -231,6 +276,8 @@ namespace LaunchBoi
       rightColorPadding.Width      = (int)Math.Ceiling(addAppPanel.Width * 0.1);
       leftPaddingPanel.Width       = (int)Math.Ceiling(addAppPanel.Width * 0.1);
       leftColorPadding.Width       = (int)Math.Ceiling(addAppPanel.Width * 0.1);
+      leftTextBoxPadding.Width     = (int)Math.Ceiling(addAppPanel.Width * 0.1);
+      rightTextBoxPadding.Width    = (int)Math.Ceiling(addAppPanel.Width * 0.1);
     }
 
     private void AddAppButton_Click(object sender, EventArgs e)
@@ -304,6 +351,19 @@ namespace LaunchBoi
       }
 
       ColorPanel.BackColor = Color.FromArgb(red, green, blue);
+    }
+
+    private void AddNewAppButton_Click(object sender, EventArgs e)
+    {
+      appNameTextBox.Text   = "";
+      pathTextBox.Text      = "";
+      timeComboBox.Text     = "";
+      intervalComboBox.Text = "";
+      ColorPanel.BackColor  = SystemColors.Control;
+      redColorText.Text     = "";
+      greenColorText.Text   = "";
+      blueColorText.Text    = "";
+      addAppButton.Text     = "Add App";
     }
   }
 }

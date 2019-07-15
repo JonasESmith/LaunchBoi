@@ -69,11 +69,15 @@
       this.rightPaddingPanel = new System.Windows.Forms.Panel();
       this.leftPaddingPanel = new System.Windows.Forms.Panel();
       this.topBufferPanel = new System.Windows.Forms.Panel();
-      this.panel1 = new System.Windows.Forms.Panel();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+      this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+      this.rightTextBoxPadding = new System.Windows.Forms.Panel();
+      this.leftTextBoxPadding = new System.Windows.Forms.Panel();
+      this.panel1 = new System.Windows.Forms.Panel();
       this.leftNavPanel.SuspendLayout();
       this.AddNewAppPanel.SuspendLayout();
       this.addAppPanel.SuspendLayout();
+      this.addNewAppBottomPanel.SuspendLayout();
       this.addNewAppTopPanel.SuspendLayout();
       this.panel7.SuspendLayout();
       this.panel5.SuspendLayout();
@@ -118,23 +122,28 @@
       this.addNewAppButton.TabIndex = 0;
       this.addNewAppButton.Text = "Add New App";
       this.addNewAppButton.UseVisualStyleBackColor = true;
+      this.addNewAppButton.Click += new System.EventHandler(this.AddNewAppButton_Click);
       // 
       // addAppPanel
       // 
       this.addAppPanel.Controls.Add(this.addNewAppBottomPanel);
       this.addAppPanel.Controls.Add(this.addNewAppTopPanel);
-      this.addAppPanel.Dock = System.Windows.Forms.DockStyle.Top;
+      this.addAppPanel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.addAppPanel.Location = new System.Drawing.Point(302, 0);
       this.addAppPanel.Name = "addAppPanel";
-      this.addAppPanel.Size = new System.Drawing.Size(984, 713);
+      this.addAppPanel.Size = new System.Drawing.Size(984, 745);
       this.addAppPanel.TabIndex = 1;
       // 
       // addNewAppBottomPanel
       // 
+      this.addNewAppBottomPanel.Controls.Add(this.richTextBox1);
+      this.addNewAppBottomPanel.Controls.Add(this.panel1);
+      this.addNewAppBottomPanel.Controls.Add(this.rightTextBoxPadding);
+      this.addNewAppBottomPanel.Controls.Add(this.leftTextBoxPadding);
       this.addNewAppBottomPanel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.addNewAppBottomPanel.Location = new System.Drawing.Point(0, 207);
       this.addNewAppBottomPanel.Name = "addNewAppBottomPanel";
-      this.addNewAppBottomPanel.Size = new System.Drawing.Size(984, 506);
+      this.addNewAppBottomPanel.Size = new System.Drawing.Size(984, 538);
       this.addNewAppBottomPanel.TabIndex = 12;
       // 
       // addNewAppTopPanel
@@ -565,24 +574,48 @@
       this.topBufferPanel.Size = new System.Drawing.Size(984, 30);
       this.topBufferPanel.TabIndex = 12;
       // 
-      // panel1
-      // 
-      this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-      this.panel1.Location = new System.Drawing.Point(302, 713);
-      this.panel1.Name = "panel1";
-      this.panel1.Size = new System.Drawing.Size(984, 319);
-      this.panel1.TabIndex = 2;
-      // 
       // openFileDialog1
       // 
       this.openFileDialog1.FileName = "openFileDialog1";
+      // 
+      // richTextBox1
+      // 
+      this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.richTextBox1.Location = new System.Drawing.Point(119, 0);
+      this.richTextBox1.Name = "richTextBox1";
+      this.richTextBox1.Size = new System.Drawing.Size(766, 483);
+      this.richTextBox1.TabIndex = 0;
+      this.richTextBox1.Text = "";
+      // 
+      // rightTextBoxPadding
+      // 
+      this.rightTextBoxPadding.Dock = System.Windows.Forms.DockStyle.Right;
+      this.rightTextBoxPadding.Location = new System.Drawing.Point(885, 0);
+      this.rightTextBoxPadding.Name = "rightTextBoxPadding";
+      this.rightTextBoxPadding.Size = new System.Drawing.Size(99, 538);
+      this.rightTextBoxPadding.TabIndex = 1;
+      // 
+      // leftTextBoxPadding
+      // 
+      this.leftTextBoxPadding.Dock = System.Windows.Forms.DockStyle.Left;
+      this.leftTextBoxPadding.Location = new System.Drawing.Point(0, 0);
+      this.leftTextBoxPadding.Name = "leftTextBoxPadding";
+      this.leftTextBoxPadding.Size = new System.Drawing.Size(119, 538);
+      this.leftTextBoxPadding.TabIndex = 2;
+      // 
+      // panel1
+      // 
+      this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+      this.panel1.Location = new System.Drawing.Point(119, 483);
+      this.panel1.Name = "panel1";
+      this.panel1.Size = new System.Drawing.Size(766, 55);
+      this.panel1.TabIndex = 3;
       // 
       // mainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(1286, 745);
-      this.Controls.Add(this.panel1);
       this.Controls.Add(this.addAppPanel);
       this.Controls.Add(this.leftNavPanel);
       this.MinimumSize = new System.Drawing.Size(1102, 784);
@@ -592,6 +625,7 @@
       this.leftNavPanel.ResumeLayout(false);
       this.AddNewAppPanel.ResumeLayout(false);
       this.addAppPanel.ResumeLayout(false);
+      this.addNewAppBottomPanel.ResumeLayout(false);
       this.addNewAppTopPanel.ResumeLayout(false);
       this.panel7.ResumeLayout(false);
       this.panel7.PerformLayout();
@@ -613,7 +647,6 @@
     private System.Windows.Forms.Panel addAppPanel;
     private System.Windows.Forms.TextBox appNameTextBox;
     private System.Windows.Forms.Label newAppNameLabel;
-    private System.Windows.Forms.Panel panel1;
     private System.Windows.Forms.Button browsePathButton;
     private System.Windows.Forms.TextBox pathTextBox;
     private System.Windows.Forms.Label appPathLabel;
@@ -649,6 +682,10 @@
     private System.Windows.Forms.Panel leftColorPadding;
     private System.Windows.Forms.Panel panel6;
     private System.Windows.Forms.Panel panel8;
+    private System.Windows.Forms.RichTextBox richTextBox1;
+    private System.Windows.Forms.Panel rightTextBoxPadding;
+    private System.Windows.Forms.Panel leftTextBoxPadding;
+    private System.Windows.Forms.Panel panel1;
   }
 }
 

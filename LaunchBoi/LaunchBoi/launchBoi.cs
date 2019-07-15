@@ -24,6 +24,23 @@ namespace LaunchBoi
       InitializeComponent();
       LoadStyles();
       appList = Load_App_Stats_From_JSON();
+      Load_App_Buttons();
+    }
+
+    public void Load_App_Buttons()
+    {
+
+      for(int i = 0; i < appList.Count; i++)
+      {
+        Panel appPanel = new Panel();
+        appPanel.Width = appsRunningPanel.Width;
+        appPanel.Height = 100;
+        appPanel.BackColor = Color.Black;
+
+
+
+        appsRunningPanel.Controls.Add(appPanel);
+      }
     }
 
     public void LoadStyles()
@@ -55,13 +72,13 @@ namespace LaunchBoi
 
     private void MainForm_Resize(object sender, EventArgs e)
     {
-      middleLeftBufferPanel.Width  = (int)Math.Ceiling(addAppPanel.Width * 0.1);
       middleRightBufferPanel.Width = (int)Math.Ceiling(addAppPanel.Width * 0.1);
+      middleLeftBufferPanel.Width  = (int)Math.Ceiling(addAppPanel.Width * 0.1);
       middleAddNewAppPanel.Width   = (int)Math.Ceiling(addAppPanel.Width * 0.6);
-      leftPaddingPanel.Width       = (int)Math.Ceiling(addAppPanel.Width * 0.1);
-      rightPaddingPanel.Width      = (int)Math.Ceiling(addAppPanel.Width * 0.1);
       AddNewPathNamePanel.Width    = (int)Math.Ceiling(addAppPanel.Width * 0.6);
+      rightPaddingPanel.Width      = (int)Math.Ceiling(addAppPanel.Width * 0.1);
       rightColorPadding.Width      = (int)Math.Ceiling(addAppPanel.Width * 0.1);
+      leftPaddingPanel.Width       = (int)Math.Ceiling(addAppPanel.Width * 0.1);
       leftColorPadding.Width       = (int)Math.Ceiling(addAppPanel.Width * 0.1);
     }
 
@@ -84,6 +101,9 @@ namespace LaunchBoi
     {
       List<AppStats> list = JsonConvert.DeserializeObject<List<AppStats>>(Properties.Settings.Default.appJson);
 
+      if (list == null)
+        list = new List<AppStats>();
+
       return list;
     }
 
@@ -91,7 +111,6 @@ namespace LaunchBoi
     {
       Properties.Settings.Default.appJson = JsonConvert.SerializeObject(appList);
       Properties.Settings.Default.Save();
-
     }
 
     private void TextBox1_TextChanged(object sender, EventArgs e)

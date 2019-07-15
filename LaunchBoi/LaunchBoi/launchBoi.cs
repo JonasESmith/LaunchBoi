@@ -132,27 +132,27 @@ namespace LaunchBoi
         colorPanel.Dock      = DockStyle.Left;
         colorPanel.Width     = 10;
 
-        Panel padingPanel = new Panel();
-        padingPanel.Width = 15;
-        padingPanel.Dock  = DockStyle.Left;
+        Panel padingPanel    = new Panel();
+        padingPanel.Width    = 15;
+        padingPanel.Dock     = DockStyle.Left;
 
-        Label nameLabel     = new Label();
-        nameLabel.Font      = new Font(new FontFamily("Verdana"), 12);
-        nameLabel.Text      = appList[i].appName;
-        nameLabel.Name      = i.ToString() + ",nameLabel";
-        nameLabel.AutoSize  = false;
-        nameLabel.TextAlign = ContentAlignment.MiddleLeft;
-        nameLabel.Click    += AppPanel_Click;
-        nameLabel.Dock      = DockStyle.Fill;
+        Label nameLabel      = new Label();
+        nameLabel.Font       = new Font(new FontFamily("Verdana"), 12);
+        nameLabel.Text       = appList[i].appName;
+        nameLabel.Name       = i.ToString() + ",nameLabel";
+        nameLabel.AutoSize   = false;
+        nameLabel.TextAlign  = ContentAlignment.MiddleLeft;
+        nameLabel.Click     += AppPanel_Click;
+        nameLabel.Dock       = DockStyle.Fill;
 
-        Label timeLabel     = new Label();
-        timeLabel.Name      = i.ToString() + ",timeLabel";
-        timeLabel.Text      = "00:00:00";
-        timeLabel.Dock      = DockStyle.Right;
-        timeLabel.AutoSize  = false;
-        timeLabel.Width     = 60;
-        timeLabel.Click    += AppPanel_Click;
-        timeLabel.TextAlign = ContentAlignment.MiddleCenter;
+        Label timeLabel      = new Label();
+        timeLabel.Name       = i.ToString() + ",timeLabel";
+        timeLabel.Text       = "00:00:00";
+        timeLabel.Dock       = DockStyle.Right;
+        timeLabel.AutoSize   = false;
+        timeLabel.Width      = 60;
+        timeLabel.Click     += AppPanel_Click;
+        timeLabel.TextAlign  = ContentAlignment.MiddleCenter;
 
 
         topAppBar.Controls.Add(nameLabel);
@@ -160,25 +160,25 @@ namespace LaunchBoi
         topAppBar.Controls.Add(timeLabel);
         topAppBar.Controls.Add(colorPanel);
 
-        Panel botAppBar     = new Panel();
-        botAppBar.Dock      = DockStyle.Bottom;
-        botAppBar.Height    = (mainPanel.Height / 2);
-        botAppBar.BackColor = SystemColors.Control;
-        botAppBar.Width     = mainPanel.Width;
-        botAppBar.Click    += AppPanel_Click;
+        Panel botAppBar      = new Panel();
+        botAppBar.Dock       = DockStyle.Bottom;
+        botAppBar.Height     = (mainPanel.Height / 2);
+        botAppBar.BackColor  = SystemColors.Control;
+        botAppBar.Width      = mainPanel.Width;
+        botAppBar.Click     += AppPanel_Click;
 
-        botAppBar.BackColor = SystemColors.Control;
+        botAppBar.BackColor  = SystemColors.Control;
 
-        Panel topPadding   = new Panel();
-        topPad.Dock        = DockStyle.Top;
-        topPad.Height      = 1;
-        topPad.BackColor   = Color.DarkGray;
+        Panel topPadding     = new Panel();
+        topPad.Dock          = DockStyle.Top;
+        topPad.Height        = 1;
+        topPad.BackColor     = Color.DarkGray;
         
 
-        Panel leftTopPanel     = new Panel();
-        leftTopPanel.Width     = 15;
-        leftTopPanel.Dock      = DockStyle.Left;
-        leftTopPanel.BackColor = SystemColors.Control;
+        Panel leftTopPanel      = new Panel();
+        leftTopPanel.Width      = 15;
+        leftTopPanel.Dock       = DockStyle.Left;
+        leftTopPanel.BackColor  = SystemColors.Control;
 
         Panel rightTopPanel     = new Panel();
         rightTopPanel.Width     = 15;
@@ -410,6 +410,7 @@ namespace LaunchBoi
       greenColorText.Text     = "";
       blueColorText.Text      = "";
       addAppButton.Text       = "Add App";
+      dataTextOutput.Text     = "";
     }
 
     private void DeleteAppButton_Click(object sender, EventArgs e)

@@ -15,6 +15,8 @@ namespace LaunchBoi
 {
   public partial class mainForm : Form
   {
+    List<AppStats> appList = new List<AppStats>();
+
     public mainForm()
     {
       InitializeComponent();
@@ -62,14 +64,23 @@ namespace LaunchBoi
 
     private void AddAppButton_Click(object sender, EventArgs e)
     {
+      AppStats newApp    = new AppStats();
+      newApp.appInterval = intervalComboBox.Text;
+      newApp.appName     = appNameTextBox.Text;
+      newApp.appPath     = pathTextBox.Text;
+      newApp.appTime     = timeComboBox.Text;
+      newApp.appColor    = Color.FromArgb(Convert.ToInt32(redColorText.Text),
+                                          Convert.ToInt32(greenColorText.Text), 
+                                          Convert.ToInt32(blueColorText.Text));
 
+      appList.Add(newApp);
     }
 
     private void TextBox1_TextChanged(object sender, EventArgs e)
     {
-      string red_string = redColorTExt.Text;
+      string red_string   = redColorText.Text;
       string green_string = greenColorText.Text;
-      string blue_string = blueColorText.Text;
+      string blue_string  = blueColorText.Text;
 
       int red = 0;
       if(!string.IsNullOrEmpty(red_string) && Regex.IsMatch(red_string, "^[0-9]+$"))
@@ -77,7 +88,7 @@ namespace LaunchBoi
         red = Convert.ToInt32(red_string);
         if (red > 255)
         {
-          redColorTExt.Text = "0";
+          redColorText.Text = "0";
           red = 0;
         }
       }

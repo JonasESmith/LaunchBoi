@@ -70,7 +70,7 @@
       this.leftPaddingPanel = new System.Windows.Forms.Panel();
       this.topBufferPanel = new System.Windows.Forms.Panel();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-      this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+      this.dataTextOutput = new System.Windows.Forms.RichTextBox();
       this.rightTextBoxPadding = new System.Windows.Forms.Panel();
       this.leftTextBoxPadding = new System.Windows.Forms.Panel();
       this.panel1 = new System.Windows.Forms.Panel();
@@ -142,7 +142,7 @@
       // 
       // addNewAppBottomPanel
       // 
-      this.addNewAppBottomPanel.Controls.Add(this.richTextBox1);
+      this.addNewAppBottomPanel.Controls.Add(this.dataTextOutput);
       this.addNewAppBottomPanel.Controls.Add(this.panel1);
       this.addNewAppBottomPanel.Controls.Add(this.rightTextBoxPadding);
       this.addNewAppBottomPanel.Controls.Add(this.leftTextBoxPadding);
@@ -584,14 +584,15 @@
       // 
       this.openFileDialog1.FileName = "openFileDialog1";
       // 
-      // richTextBox1
+      // dataTextOutput
       // 
-      this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.richTextBox1.Location = new System.Drawing.Point(119, 0);
-      this.richTextBox1.Name = "richTextBox1";
-      this.richTextBox1.Size = new System.Drawing.Size(766, 476);
-      this.richTextBox1.TabIndex = 0;
-      this.richTextBox1.Text = "";
+      this.dataTextOutput.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.dataTextOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.dataTextOutput.Location = new System.Drawing.Point(119, 0);
+      this.dataTextOutput.Name = "dataTextOutput";
+      this.dataTextOutput.Size = new System.Drawing.Size(766, 476);
+      this.dataTextOutput.TabIndex = 0;
+      this.dataTextOutput.Text = "";
       // 
       // rightTextBoxPadding
       // 
@@ -721,7 +722,7 @@
     private System.Windows.Forms.Panel leftColorPadding;
     private System.Windows.Forms.Panel panel6;
     private System.Windows.Forms.Panel panel8;
-    private System.Windows.Forms.RichTextBox richTextBox1;
+    private System.Windows.Forms.RichTextBox dataTextOutput;
     private System.Windows.Forms.Panel rightTextBoxPadding;
     private System.Windows.Forms.Panel leftTextBoxPadding;
     private System.Windows.Forms.Panel panel1;

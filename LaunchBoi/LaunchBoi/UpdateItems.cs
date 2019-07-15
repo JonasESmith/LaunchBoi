@@ -5,7 +5,8 @@ namespace LaunchBoi
 {
   public class UpdateItems
   {
-    public UpdateItems(Label _label, Label _iterationLabel, TimeSpan _interval) {
+    public UpdateItems(Label _label, Label _iterationLabel, TimeSpan _interval, int _index) {
+      index          = _index;
       interval       = _interval;
       countDownLabel = _label;
       iterationLabel = _iterationLabel;
@@ -16,6 +17,7 @@ namespace LaunchBoi
     public Label    iterationLabel { get; set; }
     public TimeSpan interval       { get; set; }
     public int      runCount       { get; set; }
+    public int      index          { get; set; }
 
     public void Iterate()
     {

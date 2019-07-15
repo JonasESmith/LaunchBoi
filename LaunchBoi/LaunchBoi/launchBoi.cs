@@ -1,21 +1,15 @@
 ﻿/// Programmer : Jonas Smith
 /// Purpose    : Application to keep track of all the scripts I have created for pinnacle Hemp
 
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Configuration;
+using System.Drawing;
+using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.ComponentModel;
 
 namespace LaunchBoi
 {
@@ -51,14 +45,16 @@ namespace LaunchBoi
       TimeSpan zero   = TimeSpan.Zero;
       timeToSave--;
 
+
       for (int i = 0; i < updateList.Count; i++) {
         updateList[i].interval            = updateList[i].interval.Subtract(second);
         updateList[i].countDownLabel.Text = updateList[i].interval.ToString();
 
         if (updateList[i].interval == zero) {
-          RunApplication(appList[i], i);
-          updateList[i].interval = TimeSpan.FromSeconds(appList[i].getSeconds());
-          updateList[i].Iterate();
+          BackgroundWorker worker    = new BackgroundWorker();
+          worker.DoWork             += Worker_DoWork;
+          worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
+          worker.RunWorkerAsync(argument: i);
         }
       }
 
@@ -66,6 +62,22 @@ namespace LaunchBoi
         timeToSave = 60;
         Save_Apps_to_JSON();
       }
+    }
+
+    private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+    {
+      int i = (int) e.Result;
+
+      updateList[i].interval = TimeSpan.FromSeconds(appList[i].getSeconds());
+      updateList[i].Iterate();
+    }
+
+    private void Worker_DoWork(object sender, DoWorkEventArgs e)
+    {
+      int i = (int)e.Argument;
+
+      RunApplication(appList[i], i);
+      e.Result = i;
     }
 
     public bool RunApplication(AppStats app, int index)

@@ -52,7 +52,7 @@ namespace LaunchBoi
       timeToSave--;
 
       for (int i = 0; i < updateList.Count; i++) {
-        updateList[i].interval   = updateList[i].interval.Subtract(second);
+        updateList[i].interval            = updateList[i].interval.Subtract(second);
         updateList[i].countDownLabel.Text = updateList[i].interval.ToString();
 
         if (updateList[i].interval == zero) {
@@ -145,11 +145,9 @@ namespace LaunchBoi
         nameLabel.Click    += AppPanel_Click;
         nameLabel.Dock      = DockStyle.Fill;
 
-        TimeSpan result     = TimeSpan.FromSeconds(appList[i].getSeconds());
-
         Label timeLabel     = new Label();
         timeLabel.Name      = i.ToString() + ",timeLabel";
-        timeLabel.Text      = result.ToString();
+        timeLabel.Text      = "00:00:00";
         timeLabel.Dock      = DockStyle.Right;
         timeLabel.AutoSize  = false;
         timeLabel.Width     = 60;
@@ -223,7 +221,10 @@ namespace LaunchBoi
 
         bool exist = updateList.Any(item => item.index == i);
         if(!exist)
-          updateList.Add( new UpdateItems(timeLabel, iterationLabel, result, i));
+          updateList.Add( new UpdateItems(timeLabel, iterationLabel, TimeSpan.FromSeconds(appList[i].getSeconds()), i));
+        else {
+          updateList[i].UpdateLabel(timeLabel, iterationLabel);
+        }
 
         Panel bottomHeightPanel  = new Panel();
         bottomHeightPanel.Height = 8;
@@ -310,18 +311,17 @@ namespace LaunchBoi
            !string.IsNullOrEmpty( greenColorText.Text  )  &&
            !string.IsNullOrEmpty( blueColorText.Text   ))
         {
+          AppStats newApp    = new AppStats();
+          newApp.appInterval = intervalComboBox.Text;
+          newApp.appName     = appNameTextBox.Text;
+          newApp.appPath     = pathTextBox.Text;
+          newApp.appTime     = timeComboBox.Text;
+          newApp.appColor    = Color.FromArgb(Convert.ToInt32(redColorText.Text),
+                                              Convert.ToInt32(greenColorText.Text), 
+                                              Convert.ToInt32(blueColorText.Text));
 
+          appList.Add(newApp);
         }
-        AppStats newApp    = new AppStats();
-        newApp.appInterval = intervalComboBox.Text;
-        newApp.appName     = appNameTextBox.Text;
-        newApp.appPath     = pathTextBox.Text;
-        newApp.appTime     = timeComboBox.Text;
-        newApp.appColor    = Color.FromArgb(Convert.ToInt32(redColorText.Text),
-                                            Convert.ToInt32(greenColorText.Text), 
-                                            Convert.ToInt32(blueColorText.Text));
-
-        appList.Add(newApp);
       }
       else
       {

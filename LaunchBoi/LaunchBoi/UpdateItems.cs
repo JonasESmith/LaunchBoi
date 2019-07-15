@@ -24,5 +24,11 @@ namespace LaunchBoi
       runCount++;
       iterationLabel.Text = string.Format("iterations : {0,-4}", runCount.ToString());
     }
+
+    public void UpdateLabel(Label _label, Label _iterationLabel)
+    {
+      countDownLabel = _label;
+      iterationLabel = _iterationLabel;
+    }
   }
 }

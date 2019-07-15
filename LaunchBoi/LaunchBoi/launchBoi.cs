@@ -55,14 +55,14 @@ namespace LaunchBoi
         updateList[i].countDownLabel.Text = updateList[i].interval.ToString();
 
         if (updateList[i].interval == zero) {
-          RunApplication(appList[i]);
+          RunApplication(appList[i], i);
           updateList[i].interval = TimeSpan.FromSeconds(appList[i].getSeconds());
           updateList[i].Iterate();
         }
       }
     }
 
-    public bool RunApplication(AppStats app)
+    public bool RunApplication(AppStats app, int index)
     {
       ProcessStartInfo startInfo = new ProcessStartInfo();
       startInfo.CreateNoWindow   = false;
@@ -71,7 +71,10 @@ namespace LaunchBoi
 
       try {
         using (Process exeProcess = Process.Start(startInfo)) {
-
+          while(!exeProcess.StandardOutput.EndOfStream) {
+            string line = exeProcess.StandardOutput.ReadLine();
+            appList[index].jsonData += line + "/|\\";
+          }
         }
       }
       catch (Exception) {
@@ -226,6 +229,8 @@ namespace LaunchBoi
 
     private void AppPanel_Click(object sender, EventArgs e)
     {
+      deleteAppButton.Visible = true;
+
       _isNew = false;
       Label label = sender as Label;
 
@@ -374,6 +379,8 @@ namespace LaunchBoi
 
     private void AddNewAppButton_Click(object sender, EventArgs e)
     {
+      deleteAppButton.Visible = false;
+
       _isNew                = true;
       appNameTextBox.Text   = "";
       pathTextBox.Text      = "";
@@ -384,6 +391,11 @@ namespace LaunchBoi
       greenColorText.Text   = "";
       blueColorText.Text    = "";
       addAppButton.Text     = "Add App";
+    }
+
+    private void DeleteAppButton_Click(object sender, EventArgs e)
+    {
+      
     }
   }
 }

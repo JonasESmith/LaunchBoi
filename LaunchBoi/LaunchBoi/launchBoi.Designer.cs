@@ -74,6 +74,9 @@
       this.rightTextBoxPadding = new System.Windows.Forms.Panel();
       this.leftTextBoxPadding = new System.Windows.Forms.Panel();
       this.panel1 = new System.Windows.Forms.Panel();
+      this.deleteAppButton = new System.Windows.Forms.Button();
+      this.panel10 = new System.Windows.Forms.Panel();
+      this.panel11 = new System.Windows.Forms.Panel();
       this.leftNavPanel.SuspendLayout();
       this.AddNewAppPanel.SuspendLayout();
       this.addAppPanel.SuspendLayout();
@@ -84,6 +87,8 @@
       this.middleAddNewAppPanel.SuspendLayout();
       this.panel2.SuspendLayout();
       this.AddNewPathNamePanel.SuspendLayout();
+      this.panel1.SuspendLayout();
+      this.panel10.SuspendLayout();
       this.SuspendLayout();
       // 
       // leftNavPanel
@@ -584,7 +589,7 @@
       this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.richTextBox1.Location = new System.Drawing.Point(119, 0);
       this.richTextBox1.Name = "richTextBox1";
-      this.richTextBox1.Size = new System.Drawing.Size(766, 489);
+      this.richTextBox1.Size = new System.Drawing.Size(766, 476);
       this.richTextBox1.TabIndex = 0;
       this.richTextBox1.Text = "";
       // 
@@ -606,11 +611,42 @@
       // 
       // panel1
       // 
+      this.panel1.Controls.Add(this.panel10);
+      this.panel1.Controls.Add(this.panel11);
       this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.panel1.Location = new System.Drawing.Point(119, 489);
+      this.panel1.Location = new System.Drawing.Point(119, 476);
       this.panel1.Name = "panel1";
-      this.panel1.Size = new System.Drawing.Size(766, 49);
+      this.panel1.Size = new System.Drawing.Size(766, 62);
       this.panel1.TabIndex = 3;
+      // 
+      // deleteAppButton
+      // 
+      this.deleteAppButton.Dock = System.Windows.Forms.DockStyle.Right;
+      this.deleteAppButton.Location = new System.Drawing.Point(601, 0);
+      this.deleteAppButton.Name = "deleteAppButton";
+      this.deleteAppButton.Size = new System.Drawing.Size(165, 30);
+      this.deleteAppButton.TabIndex = 11;
+      this.deleteAppButton.Text = "Delete App";
+      this.deleteAppButton.UseVisualStyleBackColor = true;
+      this.deleteAppButton.Visible = false;
+      this.deleteAppButton.Click += new System.EventHandler(this.DeleteAppButton_Click);
+      // 
+      // panel10
+      // 
+      this.panel10.Controls.Add(this.deleteAppButton);
+      this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
+      this.panel10.Location = new System.Drawing.Point(0, 16);
+      this.panel10.Name = "panel10";
+      this.panel10.Size = new System.Drawing.Size(766, 30);
+      this.panel10.TabIndex = 12;
+      // 
+      // panel11
+      // 
+      this.panel11.Dock = System.Windows.Forms.DockStyle.Bottom;
+      this.panel11.Location = new System.Drawing.Point(0, 46);
+      this.panel11.Name = "panel11";
+      this.panel11.Size = new System.Drawing.Size(766, 16);
+      this.panel11.TabIndex = 13;
       // 
       // mainForm
       // 
@@ -635,6 +671,8 @@
       this.panel2.ResumeLayout(false);
       this.AddNewPathNamePanel.ResumeLayout(false);
       this.AddNewPathNamePanel.PerformLayout();
+      this.panel1.ResumeLayout(false);
+      this.panel10.ResumeLayout(false);
       this.ResumeLayout(false);
 
     }
@@ -687,6 +725,9 @@
     private System.Windows.Forms.Panel rightTextBoxPadding;
     private System.Windows.Forms.Panel leftTextBoxPadding;
     private System.Windows.Forms.Panel panel1;
+    private System.Windows.Forms.Panel panel10;
+    private System.Windows.Forms.Button deleteAppButton;
+    private System.Windows.Forms.Panel panel11;
   }
 }
 

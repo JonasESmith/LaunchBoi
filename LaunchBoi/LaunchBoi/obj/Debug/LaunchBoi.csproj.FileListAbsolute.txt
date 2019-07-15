@@ -10,3 +10,4 @@ C:\Users\Jonas\Desktop\gitProj\LaunchBoi\LaunchBoi\LaunchBoi\obj\Debug\LaunchBoi
 C:\Users\Jonas\Desktop\gitProj\LaunchBoi\LaunchBoi\LaunchBoi\obj\Debug\LaunchBoi.csproj.CopyComplete
 C:\Users\Jonas\Desktop\gitProj\LaunchBoi\LaunchBoi\LaunchBoi\obj\Debug\LaunchBoi.exe
 C:\Users\Jonas\Desktop\gitProj\LaunchBoi\LaunchBoi\LaunchBoi\obj\Debug\LaunchBoi.pdb
+C:\Users\Jonas\Desktop\gitProj\LaunchBoi\LaunchBoi\LaunchBoi\obj\Debug\LaunchBoi.csprojAssemblyReference.cache

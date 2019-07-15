@@ -121,7 +121,6 @@
       // 
       // addAppPanel
       // 
-      this.addAppPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.addAppPanel.Controls.Add(this.addNewAppBottomPanel);
       this.addAppPanel.Controls.Add(this.addNewAppTopPanel);
       this.addAppPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -135,7 +134,7 @@
       this.addNewAppBottomPanel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.addNewAppBottomPanel.Location = new System.Drawing.Point(0, 207);
       this.addNewAppBottomPanel.Name = "addNewAppBottomPanel";
-      this.addNewAppBottomPanel.Size = new System.Drawing.Size(982, 504);
+      this.addNewAppBottomPanel.Size = new System.Drawing.Size(984, 506);
       this.addNewAppBottomPanel.TabIndex = 12;
       // 
       // addNewAppTopPanel
@@ -149,7 +148,7 @@
       this.addNewAppTopPanel.Dock = System.Windows.Forms.DockStyle.Top;
       this.addNewAppTopPanel.Location = new System.Drawing.Point(0, 0);
       this.addNewAppTopPanel.Name = "addNewAppTopPanel";
-      this.addNewAppTopPanel.Size = new System.Drawing.Size(982, 207);
+      this.addNewAppTopPanel.Size = new System.Drawing.Size(984, 207);
       this.addNewAppTopPanel.TabIndex = 11;
       // 
       // panel7
@@ -169,7 +168,7 @@
       this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
       this.panel7.Location = new System.Drawing.Point(0, 150);
       this.panel7.Name = "panel7";
-      this.panel7.Size = new System.Drawing.Size(982, 30);
+      this.panel7.Size = new System.Drawing.Size(984, 30);
       this.panel7.TabIndex = 17;
       // 
       // colorPadding
@@ -177,7 +176,7 @@
       this.colorPadding.Dock = System.Windows.Forms.DockStyle.Fill;
       this.colorPadding.Location = new System.Drawing.Point(439, 0);
       this.colorPadding.Name = "colorPadding";
-      this.colorPadding.Size = new System.Drawing.Size(279, 30);
+      this.colorPadding.Size = new System.Drawing.Size(281, 30);
       this.colorPadding.TabIndex = 9;
       // 
       // blueColorText
@@ -220,7 +219,7 @@
       // addAppButton
       // 
       this.addAppButton.Dock = System.Windows.Forms.DockStyle.Right;
-      this.addAppButton.Location = new System.Drawing.Point(718, 0);
+      this.addAppButton.Location = new System.Drawing.Point(720, 0);
       this.addAppButton.Name = "addAppButton";
       this.addAppButton.Size = new System.Drawing.Size(165, 30);
       this.addAppButton.TabIndex = 10;
@@ -266,7 +265,7 @@
       // rightColorPadding
       // 
       this.rightColorPadding.Dock = System.Windows.Forms.DockStyle.Right;
-      this.rightColorPadding.Location = new System.Drawing.Point(883, 0);
+      this.rightColorPadding.Location = new System.Drawing.Point(885, 0);
       this.rightColorPadding.Name = "rightColorPadding";
       this.rightColorPadding.Size = new System.Drawing.Size(99, 30);
       this.rightColorPadding.TabIndex = 1;
@@ -301,7 +300,7 @@
       this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
       this.panel6.Location = new System.Drawing.Point(0, 120);
       this.panel6.Name = "panel6";
-      this.panel6.Size = new System.Drawing.Size(982, 30);
+      this.panel6.Size = new System.Drawing.Size(984, 30);
       this.panel6.TabIndex = 16;
       // 
       // panel5
@@ -312,7 +311,7 @@
       this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
       this.panel5.Location = new System.Drawing.Point(0, 90);
       this.panel5.Name = "panel5";
-      this.panel5.Size = new System.Drawing.Size(982, 30);
+      this.panel5.Size = new System.Drawing.Size(984, 30);
       this.panel5.TabIndex = 15;
       // 
       // middleAddNewAppPanel
@@ -324,7 +323,7 @@
       this.middleAddNewAppPanel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.middleAddNewAppPanel.Location = new System.Drawing.Point(119, 0);
       this.middleAddNewAppPanel.Name = "middleAddNewAppPanel";
-      this.middleAddNewAppPanel.Size = new System.Drawing.Size(764, 30);
+      this.middleAddNewAppPanel.Size = new System.Drawing.Size(766, 30);
       this.middleAddNewAppPanel.TabIndex = 16;
       // 
       // panel9
@@ -332,7 +331,7 @@
       this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
       this.panel9.Location = new System.Drawing.Point(320, 0);
       this.panel9.Name = "panel9";
-      this.panel9.Size = new System.Drawing.Size(444, 30);
+      this.panel9.Size = new System.Drawing.Size(446, 30);
       this.panel9.TabIndex = 10;
       // 
       // intervalComboBox
@@ -435,7 +434,7 @@
       // middleRightBufferPanel
       // 
       this.middleRightBufferPanel.Dock = System.Windows.Forms.DockStyle.Right;
-      this.middleRightBufferPanel.Location = new System.Drawing.Point(883, 0);
+      this.middleRightBufferPanel.Location = new System.Drawing.Point(885, 0);
       this.middleRightBufferPanel.Name = "middleRightBufferPanel";
       this.middleRightBufferPanel.Size = new System.Drawing.Size(99, 30);
       this.middleRightBufferPanel.TabIndex = 1;
@@ -453,7 +452,7 @@
       this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
       this.panel3.Location = new System.Drawing.Point(0, 60);
       this.panel3.Name = "panel3";
-      this.panel3.Size = new System.Drawing.Size(982, 30);
+      this.panel3.Size = new System.Drawing.Size(984, 30);
       this.panel3.TabIndex = 14;
       // 
       // panel2
@@ -464,7 +463,7 @@
       this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
       this.panel2.Location = new System.Drawing.Point(0, 30);
       this.panel2.Name = "panel2";
-      this.panel2.Size = new System.Drawing.Size(982, 30);
+      this.panel2.Size = new System.Drawing.Size(984, 30);
       this.panel2.TabIndex = 13;
       // 
       // AddNewPathNamePanel
@@ -478,13 +477,13 @@
       this.AddNewPathNamePanel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.AddNewPathNamePanel.Location = new System.Drawing.Point(119, 0);
       this.AddNewPathNamePanel.Name = "AddNewPathNamePanel";
-      this.AddNewPathNamePanel.Size = new System.Drawing.Size(764, 30);
+      this.AddNewPathNamePanel.Size = new System.Drawing.Size(766, 30);
       this.AddNewPathNamePanel.TabIndex = 11;
       // 
       // browsePathButton
       // 
       this.browsePathButton.Dock = System.Windows.Forms.DockStyle.Right;
-      this.browsePathButton.Location = new System.Drawing.Point(656, 0);
+      this.browsePathButton.Location = new System.Drawing.Point(658, 0);
       this.browsePathButton.Name = "browsePathButton";
       this.browsePathButton.Size = new System.Drawing.Size(108, 30);
       this.browsePathButton.TabIndex = 4;
@@ -499,7 +498,7 @@
       this.pathTextBox.Location = new System.Drawing.Point(427, 0);
       this.pathTextBox.Multiline = true;
       this.pathTextBox.Name = "pathTextBox";
-      this.pathTextBox.Size = new System.Drawing.Size(337, 30);
+      this.pathTextBox.Size = new System.Drawing.Size(339, 30);
       this.pathTextBox.TabIndex = 3;
       // 
       // appPathLabel
@@ -545,7 +544,7 @@
       // rightPaddingPanel
       // 
       this.rightPaddingPanel.Dock = System.Windows.Forms.DockStyle.Right;
-      this.rightPaddingPanel.Location = new System.Drawing.Point(883, 0);
+      this.rightPaddingPanel.Location = new System.Drawing.Point(885, 0);
       this.rightPaddingPanel.Name = "rightPaddingPanel";
       this.rightPaddingPanel.Size = new System.Drawing.Size(99, 30);
       this.rightPaddingPanel.TabIndex = 1;
@@ -563,7 +562,7 @@
       this.topBufferPanel.Dock = System.Windows.Forms.DockStyle.Top;
       this.topBufferPanel.Location = new System.Drawing.Point(0, 0);
       this.topBufferPanel.Name = "topBufferPanel";
-      this.topBufferPanel.Size = new System.Drawing.Size(982, 30);
+      this.topBufferPanel.Size = new System.Drawing.Size(984, 30);
       this.topBufferPanel.TabIndex = 12;
       // 
       // panel1

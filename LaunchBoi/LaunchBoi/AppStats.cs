@@ -19,7 +19,28 @@ namespace LaunchBoi
 
     public int getSeconds()
     {
+      // seconds, minutes, hours, days
 
+      int value = 0;
+      int app_Time = Convert.ToInt32(appTime);
+
+      switch(appInterval)
+      {
+        case "seconds":
+          value = app_Time * 1;
+          break;
+        case "minutes":
+          value = app_Time * 1 * 60;
+          break;
+        case "hours":
+          value = app_Time * 1 * 60 * 60;
+          break;
+        case "days":
+          value = app_Time * 1 * 60 * 60 * 24;
+          break;
+      }
+
+      return value;
     }
   }
 }

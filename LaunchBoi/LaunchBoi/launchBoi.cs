@@ -21,8 +21,10 @@ namespace LaunchBoi
 {
   public partial class mainForm : Form
   {
-    public static List<AppStats>    appList    = new List<AppStats>();
-    public static List<UpdateItems> updateList = new List<UpdateItems>();
+    public static List<AppStats>    appList     = new List<AppStats>();
+    public static List<UpdateItems> updateList  = new List<UpdateItems>();
+    public bool                     _isNew      = true;
+    public int                      globalIndex = 0;
 
     public mainForm()
     {
@@ -69,7 +71,7 @@ namespace LaunchBoi
 
       try {
         using (Process exeProcess = Process.Start(startInfo)) {
-          exeProcess.WaitForExit();
+
         }
       }
       catch (Exception) {
@@ -81,6 +83,8 @@ namespace LaunchBoi
 
     public void Load_App_Buttons()
     {
+      updateList.Clear();
+      appsRunningPanel.Controls.Clear();
 
       for(int i = 0; i < appList.Count; i++) {
         Panel appPanel     = new Panel();
@@ -186,12 +190,12 @@ namespace LaunchBoi
         iterationLabel.Dock      = DockStyle.Right;
         iterationLabel.AutoSize  = false;
         iterationLabel.Width     = (int) (botAppBar.Width * 0.5);
-        iterationLabel.TextAlign = ContentAlignment.MiddleCenter;
+        iterationLabel.TextAlign = ContentAlignment.MiddleRight;
         iterationLabel.Click    += AppPanel_Click;
 
         Label updateLabel     = new Label();
         updateLabel.Name      = i.ToString() + ",updateLabel";
-        updateLabel.Text      = "updates : ";
+        updateLabel.Text      = " ";
         updateLabel.Dock      = DockStyle.Left;
         updateLabel.AutoSize  = false;
         updateLabel.Width     = (int)(botAppBar.Width * 0.5);
@@ -222,20 +226,21 @@ namespace LaunchBoi
 
     private void AppPanel_Click(object sender, EventArgs e)
     {
+      _isNew = false;
       Label label = sender as Label;
 
       string[] words = label.Name.Split(',');
 
-      int index = Convert.ToInt32(words[0]);
+      globalIndex = Convert.ToInt32(words[0]);
 
-      appNameTextBox.Text   = appList[index].appName;
-      pathTextBox.Text      = appList[index].appPath;
-      timeComboBox.Text     = appList[index].appTime;
-      intervalComboBox.Text = appList[index].appInterval;
-      ColorPanel.BackColor  = appList[index].appColor;
-      redColorText.Text     = appList[index].appColor.R.ToString();
-      greenColorText.Text   = appList[index].appColor.G.ToString();
-      blueColorText.Text    = appList[index].appColor.B.ToString();
+      appNameTextBox.Text   = appList[globalIndex].appName;
+      pathTextBox.Text      = appList[globalIndex].appPath;
+      timeComboBox.Text     = appList[globalIndex].appTime;
+      intervalComboBox.Text = appList[globalIndex].appInterval;
+      ColorPanel.BackColor  = appList[globalIndex].appColor;
+      redColorText.Text     = appList[globalIndex].appColor.R.ToString();
+      greenColorText.Text   = appList[globalIndex].appColor.G.ToString();
+      blueColorText.Text    = appList[globalIndex].appColor.B.ToString();
       addAppButton.Text     = "Update App";
     }
 
@@ -282,17 +287,31 @@ namespace LaunchBoi
 
     private void AddAppButton_Click(object sender, EventArgs e)
     {
-      AppStats newApp    = new AppStats();
-      newApp.appInterval = intervalComboBox.Text;
-      newApp.appName     = appNameTextBox.Text;
-      newApp.appPath     = pathTextBox.Text;
-      newApp.appTime     = timeComboBox.Text;
-      newApp.appColor    = Color.FromArgb(Convert.ToInt32(redColorText.Text),
-                                          Convert.ToInt32(greenColorText.Text), 
-                                          Convert.ToInt32(blueColorText.Text));
+      if(_isNew)
+      {
+        AppStats newApp    = new AppStats();
+        newApp.appInterval = intervalComboBox.Text;
+        newApp.appName     = appNameTextBox.Text;
+        newApp.appPath     = pathTextBox.Text;
+        newApp.appTime     = timeComboBox.Text;
+        newApp.appColor    = Color.FromArgb(Convert.ToInt32(redColorText.Text),
+                                            Convert.ToInt32(greenColorText.Text), 
+                                            Convert.ToInt32(blueColorText.Text));
 
-      appList.Add(newApp);
+        appList.Add(newApp);
+      }
+      else
+      {
+        appList[globalIndex].appInterval = intervalComboBox.Text;
+        appList[globalIndex].appName     = appNameTextBox.Text;
+        appList[globalIndex].appPath     = pathTextBox.Text;
+        appList[globalIndex].appTime     = timeComboBox.Text;
+        appList[globalIndex].appColor    = Color.FromArgb(Convert.ToInt32(redColorText.Text),
+                                                          Convert.ToInt32(greenColorText.Text),
+                                                          Convert.ToInt32(blueColorText.Text));
+      }
       Save_Apps_to_JSON();
+      Load_App_Buttons();
     }
 
     static List<AppStats> Load_App_Stats_From_JSON()
@@ -355,6 +374,7 @@ namespace LaunchBoi
 
     private void AddNewAppButton_Click(object sender, EventArgs e)
     {
+      _isNew                = true;
       appNameTextBox.Text   = "";
       pathTextBox.Text      = "";
       timeComboBox.Text     = "";

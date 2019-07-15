@@ -101,16 +101,16 @@
       this.appsRunningPanel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.appsRunningPanel.Location = new System.Drawing.Point(0, 0);
       this.appsRunningPanel.Name = "appsRunningPanel";
-      this.appsRunningPanel.Size = new System.Drawing.Size(302, 690);
+      this.appsRunningPanel.Size = new System.Drawing.Size(302, 696);
       this.appsRunningPanel.TabIndex = 1;
       // 
       // AddNewAppPanel
       // 
       this.AddNewAppPanel.Controls.Add(this.addNewAppButton);
       this.AddNewAppPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.AddNewAppPanel.Location = new System.Drawing.Point(0, 690);
+      this.AddNewAppPanel.Location = new System.Drawing.Point(0, 696);
       this.AddNewAppPanel.Name = "AddNewAppPanel";
-      this.AddNewAppPanel.Size = new System.Drawing.Size(302, 55);
+      this.AddNewAppPanel.Size = new System.Drawing.Size(302, 49);
       this.AddNewAppPanel.TabIndex = 0;
       // 
       // addNewAppButton
@@ -118,7 +118,7 @@
       this.addNewAppButton.Dock = System.Windows.Forms.DockStyle.Fill;
       this.addNewAppButton.Location = new System.Drawing.Point(0, 0);
       this.addNewAppButton.Name = "addNewAppButton";
-      this.addNewAppButton.Size = new System.Drawing.Size(302, 55);
+      this.addNewAppButton.Size = new System.Drawing.Size(302, 49);
       this.addNewAppButton.TabIndex = 0;
       this.addNewAppButton.Text = "Add New App";
       this.addNewAppButton.UseVisualStyleBackColor = true;
@@ -583,7 +583,7 @@
       this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.richTextBox1.Location = new System.Drawing.Point(119, 0);
       this.richTextBox1.Name = "richTextBox1";
-      this.richTextBox1.Size = new System.Drawing.Size(766, 483);
+      this.richTextBox1.Size = new System.Drawing.Size(766, 489);
       this.richTextBox1.TabIndex = 0;
       this.richTextBox1.Text = "";
       // 
@@ -606,9 +606,9 @@
       // panel1
       // 
       this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-      this.panel1.Location = new System.Drawing.Point(119, 483);
+      this.panel1.Location = new System.Drawing.Point(119, 489);
       this.panel1.Name = "panel1";
-      this.panel1.Size = new System.Drawing.Size(766, 55);
+      this.panel1.Size = new System.Drawing.Size(766, 49);
       this.panel1.TabIndex = 3;
       // 
       // mainForm

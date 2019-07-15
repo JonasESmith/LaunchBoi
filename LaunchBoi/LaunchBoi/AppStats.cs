@@ -14,6 +14,7 @@ namespace LaunchBoi
     public string appTime { get; set; }
     public string appInterval { get; set; }
     public Color appColor { get; set; }
+    // want this to be a comma delimited string that I can parse into the textarea
     public string jsonData { get; set; }
 
 

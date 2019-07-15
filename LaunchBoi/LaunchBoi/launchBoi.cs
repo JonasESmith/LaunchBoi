@@ -30,15 +30,123 @@ namespace LaunchBoi
     public void Load_App_Buttons()
     {
 
-      for(int i = 0; i < appList.Count; i++)
-      {
-        Panel appPanel = new Panel();
-        appPanel.Width = appsRunningPanel.Width;
-        appPanel.Height = 100;
-        appPanel.BackColor = Color.Black;
+      for(int i = 0; i < appList.Count; i++) {
+        Panel appPanel     = new Panel();
+        appPanel.Dock      = DockStyle.Top;
+        appPanel.Width     = appsRunningPanel.Width;
+        appPanel.Height    = 100;
+        appPanel.BackColor = Color.White;
+
+        Panel topPad     = new Panel();
+        topPad.Dock      = DockStyle.Top;
+        topPad.BackColor = Color.Gray;
+        topPad.Height    = 1;
+        appPanel.Controls.Add(topPad);
+
+        Panel botPad     = new Panel();
+        botPad.Dock      = DockStyle.Bottom;
+        botPad.BackColor = Color.Gray;
+        botPad.Height    = 1;
+        appPanel.Controls.Add(botPad);
+
+        Panel mainPanel     = new Panel();
+        mainPanel.Dock      = DockStyle.Fill;
+        mainPanel.BackColor = Color.Orange;
+        appPanel.Controls.Add(mainPanel);
+
+        Panel topAppBar     = new Panel();
+        topAppBar.Dock      = DockStyle.Top;
+        topAppBar.Height    = (mainPanel.Height / 2);
+        topAppBar.BackColor = SystemColors.Control;
+        mainPanel.Controls.Add(topAppBar);
+
+        Panel colorPanel     = new Panel();
+        colorPanel.BackColor = appList[i].appColor;
+        colorPanel.Dock      = DockStyle.Left;
+        colorPanel.Width     = 10;
+
+        Panel padingPanel = new Panel();
+        padingPanel.Width = 15;
+        padingPanel.Dock  = DockStyle.Left;
+
+        Label nameLabel     = new Label();
+        nameLabel.Font      = new Font(new FontFamily("Verdana"), 12);
+        nameLabel.Text      = appList[i].appName;
+        nameLabel.AutoSize  = false;
+        nameLabel.TextAlign = ContentAlignment.MiddleLeft;
+        nameLabel.Dock      = DockStyle.Fill;
+
+        Label timeLabel     = new Label();
+        timeLabel.Text      = "00:00:00";
+        timeLabel.Dock      = DockStyle.Right;
+        timeLabel.AutoSize  = false;
+        timeLabel.Width     = 60;
+        timeLabel.TextAlign = ContentAlignment.MiddleCenter;
+
+        topAppBar.Controls.Add(nameLabel);
+        topAppBar.Controls.Add(padingPanel);
+        topAppBar.Controls.Add(timeLabel);
+        topAppBar.Controls.Add(colorPanel);
+
+        Panel botAppBar     = new Panel();
+        botAppBar.Dock      = DockStyle.Bottom;
+        botAppBar.Height    = (mainPanel.Height / 2);
+        botAppBar.BackColor = SystemColors.Control;
+        botAppBar.Width     = mainPanel.Width;
+
+        botAppBar.BackColor = SystemColors.Control;
+
+        Panel topPadding   = new Panel();
+        topPad.Dock        = DockStyle.Top;
+        topPad.Height      = 1;
+        topPad.BackColor   = Color.DarkGray;
+
+        Panel leftTopPanel = new Panel();
+        leftTopPanel.Width = 15;
+        leftTopPanel.Dock  = DockStyle.Left;
+        leftTopPanel.BackColor = SystemColors.Control;
+
+        Panel rightTopPanel = new Panel();
+        rightTopPanel.Width = 15;
+        rightTopPanel.Dock  = DockStyle.Right;
+        rightTopPanel.BackColor = SystemColors.Control;
+
+        topPad.Controls.Add(leftTopPanel);
+        topPad.Controls.Add(rightTopPanel);
+
+        botAppBar.Controls.Add(topPad);
+
+        Label iterationLabel = new Label();
+        iterationLabel.Text = "iterations : 1043";
+        iterationLabel.Dock = DockStyle.Right;
+        iterationLabel.AutoSize = false;
+        iterationLabel.Width = (int) (botAppBar.Width * 0.5);
+        iterationLabel.TextAlign = ContentAlignment.MiddleCenter;
+
+        Label updateLabel = new Label();
+        updateLabel.Text = "updates : 23";
+        updateLabel.Dock = DockStyle.Left;
+        updateLabel.AutoSize = false;
+        updateLabel.Width = (int)(botAppBar.Width * 0.5);
+        updateLabel.TextAlign = ContentAlignment.MiddleCenter;
+
+        Panel bottomStatPanel = new Panel();
+        bottomStatPanel.Dock = DockStyle.Fill;
+
+        bottomStatPanel.Controls.Add(iterationLabel);
+        bottomStatPanel.Controls.Add(updateLabel);
 
 
+        botAppBar.Controls.Add(bottomStatPanel);
 
+        mainPanel.Controls.Add(botAppBar);
+
+        Panel bottomHeightPanel = new Panel();
+        bottomHeightPanel.Height = 8;
+        bottomHeightPanel.Dock = DockStyle.Top;
+        
+
+        appsRunningPanel.Controls.Add(bottomHeightPanel);
         appsRunningPanel.Controls.Add(appPanel);
       }
     }

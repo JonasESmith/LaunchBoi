@@ -15,5 +15,11 @@ namespace LaunchBoi
     public string appInterval { get; set; }
     public Color appColor { get; set; }
     public string jsonData { get; set; }
+
+
+    public int getSeconds()
+    {
+
+    }
   }
 }

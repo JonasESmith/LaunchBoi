@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,17 +11,19 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace LaunchBoi
 {
   public partial class mainForm : Form
   {
-    List<AppStats> appList = new List<AppStats>();
+    public static List<AppStats> appList = new List<AppStats>();
 
     public mainForm()
     {
       InitializeComponent();
       LoadStyles();
+      appList = Load_App_Stats_From_JSON();
     }
 
     public void LoadStyles()
@@ -74,6 +77,21 @@ namespace LaunchBoi
                                           Convert.ToInt32(blueColorText.Text));
 
       appList.Add(newApp);
+      Save_Apps_to_JSON();
+    }
+
+    static List<AppStats> Load_App_Stats_From_JSON()
+    {
+      List<AppStats> list = JsonConvert.DeserializeObject<List<AppStats>>(Properties.Settings.Default.appJson);
+
+      return list;
+    }
+
+    static void Save_Apps_to_JSON()
+    {
+      Properties.Settings.Default.appJson = JsonConvert.SerializeObject(appList);
+      Properties.Settings.Default.Save();
+
     }
 
     private void TextBox1_TextChanged(object sender, EventArgs e)

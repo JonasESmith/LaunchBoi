@@ -116,6 +116,7 @@
       // addNewAppButton
       // 
       this.addNewAppButton.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.addNewAppButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.addNewAppButton.Location = new System.Drawing.Point(0, 0);
       this.addNewAppButton.Name = "addNewAppButton";
       this.addNewAppButton.Size = new System.Drawing.Size(302, 49);
@@ -620,7 +621,7 @@
       this.Controls.Add(this.leftNavPanel);
       this.MinimumSize = new System.Drawing.Size(1102, 784);
       this.Name = "mainForm";
-      this.Text = "Launcher_Boi";
+      this.Text = "LaunchBoi";
       this.Resize += new System.EventHandler(this.MainForm_Resize);
       this.leftNavPanel.ResumeLayout(false);
       this.AddNewAppPanel.ResumeLayout(false);

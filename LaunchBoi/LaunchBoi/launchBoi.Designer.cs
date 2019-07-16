@@ -28,6 +28,7 @@
     /// </summary>
     private void InitializeComponent()
     {
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
       this.leftNavPanel = new System.Windows.Forms.Panel();
       this.appsRunningPanel = new System.Windows.Forms.Panel();
       this.AddNewAppPanel = new System.Windows.Forms.Panel();
@@ -58,7 +59,6 @@
       this.panel6 = new System.Windows.Forms.Panel();
       this.panel5 = new System.Windows.Forms.Panel();
       this.middleAddNewAppPanel = new System.Windows.Forms.Panel();
-      this.panel9 = new System.Windows.Forms.Panel();
       this.intervalComboBox = new System.Windows.Forms.ComboBox();
       this.timeComboBox = new System.Windows.Forms.ComboBox();
       this.intervalLabel = new System.Windows.Forms.Label();
@@ -77,6 +77,11 @@
       this.leftPaddingPanel = new System.Windows.Forms.Panel();
       this.topBufferPanel = new System.Windows.Forms.Panel();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+      this.panel12 = new System.Windows.Forms.Panel();
+      this.orLabel = new System.Windows.Forms.Label();
+      this.hourComboBox = new System.Windows.Forms.ComboBox();
+      this.dayComboBox = new System.Windows.Forms.ComboBox();
+      this.atLabel = new System.Windows.Forms.Label();
       this.leftNavPanel.SuspendLayout();
       this.AddNewAppPanel.SuspendLayout();
       this.addAppPanel.SuspendLayout();
@@ -396,23 +401,19 @@
       // 
       // middleAddNewAppPanel
       // 
-      this.middleAddNewAppPanel.Controls.Add(this.panel9);
+      this.middleAddNewAppPanel.Controls.Add(this.dayComboBox);
+      this.middleAddNewAppPanel.Controls.Add(this.atLabel);
+      this.middleAddNewAppPanel.Controls.Add(this.orLabel);
+      this.middleAddNewAppPanel.Controls.Add(this.panel12);
       this.middleAddNewAppPanel.Controls.Add(this.intervalComboBox);
       this.middleAddNewAppPanel.Controls.Add(this.timeComboBox);
       this.middleAddNewAppPanel.Controls.Add(this.intervalLabel);
+      this.middleAddNewAppPanel.Controls.Add(this.hourComboBox);
       this.middleAddNewAppPanel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.middleAddNewAppPanel.Location = new System.Drawing.Point(119, 0);
       this.middleAddNewAppPanel.Name = "middleAddNewAppPanel";
       this.middleAddNewAppPanel.Size = new System.Drawing.Size(766, 30);
       this.middleAddNewAppPanel.TabIndex = 16;
-      // 
-      // panel9
-      // 
-      this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.panel9.Location = new System.Drawing.Point(320, 0);
-      this.panel9.Name = "panel9";
-      this.panel9.Size = new System.Drawing.Size(446, 30);
-      this.panel9.TabIndex = 10;
       // 
       // intervalComboBox
       // 
@@ -649,6 +650,89 @@
       // 
       this.openFileDialog1.FileName = "openFileDialog1";
       // 
+      // panel12
+      // 
+      this.panel12.Dock = System.Windows.Forms.DockStyle.Left;
+      this.panel12.Location = new System.Drawing.Point(320, 0);
+      this.panel12.Name = "panel12";
+      this.panel12.Size = new System.Drawing.Size(31, 30);
+      this.panel12.TabIndex = 11;
+      // 
+      // orLabel
+      // 
+      this.orLabel.Dock = System.Windows.Forms.DockStyle.Left;
+      this.orLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.orLabel.Location = new System.Drawing.Point(351, 0);
+      this.orLabel.Name = "orLabel";
+      this.orLabel.Size = new System.Drawing.Size(98, 30);
+      this.orLabel.TabIndex = 12;
+      this.orLabel.Text = "or launch on";
+      this.orLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // hourComboBox
+      // 
+      this.hourComboBox.Dock = System.Windows.Forms.DockStyle.Right;
+      this.hourComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.hourComboBox.FormattingEnabled = true;
+      this.hourComboBox.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23"});
+      this.hourComboBox.Location = new System.Drawing.Point(720, 0);
+      this.hourComboBox.Name = "hourComboBox";
+      this.hourComboBox.Size = new System.Drawing.Size(46, 28);
+      this.hourComboBox.TabIndex = 14;
+      // 
+      // dayComboBox
+      // 
+      this.dayComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.dayComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.dayComboBox.FormattingEnabled = true;
+      this.dayComboBox.Items.AddRange(new object[] {
+            "Everyday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"});
+      this.dayComboBox.Location = new System.Drawing.Point(449, 0);
+      this.dayComboBox.Name = "dayComboBox";
+      this.dayComboBox.Size = new System.Drawing.Size(228, 28);
+      this.dayComboBox.TabIndex = 13;
+      // 
+      // atLabel
+      // 
+      this.atLabel.Dock = System.Windows.Forms.DockStyle.Right;
+      this.atLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.atLabel.Location = new System.Drawing.Point(677, 0);
+      this.atLabel.Name = "atLabel";
+      this.atLabel.Size = new System.Drawing.Size(43, 30);
+      this.atLabel.TabIndex = 15;
+      this.atLabel.Text = "@";
+      this.atLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
       // mainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -656,6 +740,7 @@
       this.ClientSize = new System.Drawing.Size(1286, 745);
       this.Controls.Add(this.addAppPanel);
       this.Controls.Add(this.leftNavPanel);
+      this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.MinimumSize = new System.Drawing.Size(1102, 784);
       this.Name = "mainForm";
       this.Text = "LaunchBoi";
@@ -705,7 +790,6 @@
     private System.Windows.Forms.Panel leftPaddingPanel;
     private System.Windows.Forms.Panel panel5;
     private System.Windows.Forms.Panel middleAddNewAppPanel;
-    private System.Windows.Forms.Panel panel9;
     private System.Windows.Forms.Panel middleRightBufferPanel;
     private System.Windows.Forms.Panel middleLeftBufferPanel;
     private System.Windows.Forms.Panel panel3;
@@ -729,6 +813,11 @@
     private System.Windows.Forms.Panel panel10;
     private System.Windows.Forms.Button deleteAppButton;
     private System.Windows.Forms.Panel panel11;
+    private System.Windows.Forms.Panel panel12;
+    private System.Windows.Forms.Label orLabel;
+    private System.Windows.Forms.ComboBox hourComboBox;
+    private System.Windows.Forms.ComboBox dayComboBox;
+    private System.Windows.Forms.Label atLabel;
   }
 }
 

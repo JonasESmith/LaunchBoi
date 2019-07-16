@@ -15,22 +15,22 @@ namespace LaunchBoi
 {
   public partial class mainForm : Form
   {
-    public static List<AppStats>    appList      =  new List<AppStats>();
-    public static List<UpdateItems> updateList   =  new List<UpdateItems>();
-    public bool                     _isNew       =  true;
-    public int                      globalIndex  =  0;
-    public int timeToSave = 60;
+    public static List<AppStats>    appList     = new List<AppStats>();
+    public static List<UpdateItems> updateList  = new List<UpdateItems>();
+    public bool                     _isNew      = true;
+    public int                      globalIndex = 0;
+    public int                      timeToSave  = 60;
 
     public mainForm()
     {
       InitializeComponent();
-      LoadStyles();
+      Load_Styles();
       appList = Load_App_Stats_From_JSON();
       Load_App_Buttons();
-      StartTimers();
+      Start_Timers();
     }
 
-    public void StartTimers()
+    public void Start_Timers()
     {
       Timer timer    = new Timer();
       timer.Interval = 1000;
@@ -50,7 +50,7 @@ namespace LaunchBoi
         updateList[i].interval            = updateList[i].interval.Subtract(second);
         updateList[i].countDownLabel.Text = updateList[i].interval.ToString();
 
-        if (updateList[i].interval == zero) {
+        if (updateList[i].interval  == zero) {
           BackgroundWorker worker    = new BackgroundWorker();
           worker.DoWork             += Worker_DoWork;
           worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
@@ -266,9 +266,11 @@ namespace LaunchBoi
       blueColorText.Text    = appList[globalIndex].appColor.B.ToString();
       addAppButton.Text     = "Update App";
       dataTextOutput.Text   = appList[globalIndex].jsonData;
+      hourComboBox.Text     = appList[globalIndex].hour.ToString();
+      dayComboBox.Text      = appList[globalIndex].days;
     }
 
-    public void LoadStyles()
+    public void Load_Styles()
     {
       leftNavPanel.BackColor                     = Color.FromArgb(209, 209, 209);
 
@@ -309,33 +311,46 @@ namespace LaunchBoi
     private void AddAppButton_Click(object sender, EventArgs e)
     {
       if(_isNew) {
-        if(!string.IsNullOrEmpty( intervalComboBox.Text)  && 
-           !string.IsNullOrEmpty( appNameTextBox.Text  )  && 
-           !string.IsNullOrEmpty( pathTextBox.Text     )  && 
-           !string.IsNullOrEmpty( timeComboBox.Text    )  && 
-           !string.IsNullOrEmpty( redColorText.Text    )  &&
-           !string.IsNullOrEmpty( greenColorText.Text  )  &&
-           !string.IsNullOrEmpty( blueColorText.Text   )) {
+        if( !string.IsNullOrEmpty( appNameTextBox.Text  )  && 
+            !string.IsNullOrEmpty( pathTextBox.Text     )  && 
+            !string.IsNullOrEmpty( redColorText.Text    )  &&
+            !string.IsNullOrEmpty( greenColorText.Text  )  &&
+            !string.IsNullOrEmpty( blueColorText.Text   )) {
           AppStats newApp    = new AppStats();
-          newApp.appInterval = intervalComboBox.Text;
           newApp.appName     = appNameTextBox.Text;
           newApp.appPath     = pathTextBox.Text;
-          newApp.appTime     = timeComboBox.Text;
           newApp.appColor    = Color.FromArgb(Convert.ToInt32(redColorText.Text),
                                               Convert.ToInt32(greenColorText.Text), 
                                               Convert.ToInt32(blueColorText.Text));
+
+          if(!string.IsNullOrEmpty(dayComboBox.Text) && !string.IsNullOrEmpty(hourComboBox.Text)) {
+            newApp.days = dayComboBox.Text;
+            newApp.hour = Convert.ToInt32( hourComboBox.Text);
+
+            newApp.appTime     = null;
+            newApp.appInterval = null;
+          }
+          else {
+            newApp.appTime     = timeComboBox.Text;
+            newApp.appInterval = intervalComboBox.Text;
+
+            newApp.days = null;
+          }
 
           appList.Add(newApp);
         }
       }
       else {
-        appList[globalIndex].appInterval = intervalComboBox.Text;
         appList[globalIndex].appName     = appNameTextBox.Text;
         appList[globalIndex].appPath     = pathTextBox.Text;
-        appList[globalIndex].appTime     = timeComboBox.Text;
         appList[globalIndex].appColor    = Color.FromArgb(Convert.ToInt32(redColorText.Text),
                                                           Convert.ToInt32(greenColorText.Text),
                                                           Convert.ToInt32(blueColorText.Text));
+
+        appList[globalIndex].appTime     = timeComboBox.Text;
+        appList[globalIndex].appInterval = intervalComboBox.Text;
+        appList[globalIndex].hour        = Convert.ToInt32(hourComboBox.Text);
+        appList[globalIndex].days        = dayComboBox.Text;
 
         appList[globalIndex].jsonData    = dataTextOutput.Text;
       }
@@ -405,6 +420,8 @@ namespace LaunchBoi
       blueColorText.Text      = "";
       addAppButton.Text       = "Add App";
       dataTextOutput.Text     = "";
+      hourComboBox.Text       = "";
+      dayComboBox.Text        = "";
     }
 
     private void DeleteAppButton_Click(object sender, EventArgs e)

@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿/// Programmer : Jonas Smith
+/// Purpose    : Simple AppStat class that will store the json information stored locally in a settings variable
+
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LaunchBoi
 {
@@ -28,52 +27,23 @@ namespace LaunchBoi
         int app_Time = Convert.ToInt32(appTime);
 
         switch (appInterval) {
-          case "seconds":
-            value = app_Time * 1;
-            break;
-          case "minutes":
-            value = app_Time * 1 * 60;
-            break;
-          case "hours":
-            value = app_Time * 1 * 60 * 60;
-            break;
-          case "days":
-            value = app_Time * 1 * 60 * 60 * 24;
-            break;
+          case "seconds": value = app_Time * 1;                break;
+          case "minutes": value = app_Time * 1 * 60;           break;
+          case "hours":   value = app_Time * 1 * 60 * 60;      break;
+          case "days":    value = app_Time * 1 * 60 * 60 * 24; break;
         }
         return value;
       }
-      else
-      {
-        DateTime now = DateTime.Now;
-
-        switch(days)
-        {
-          case "Monday":
-            date = DateTime.Now.StartOfWeek(DayOfWeek.Monday).AddHours(hour);
-            break;
-          case "Tuesday":
-            date = DateTime.Now.StartOfWeek(DayOfWeek.Tuesday).AddHours(hour);
-            break;
-          case "Wednesday":
-            date = DateTime.Now.StartOfWeek(DayOfWeek.Wednesday).AddHours(hour);
-            break;
-          case "Thursday":
-            date = DateTime.Now.StartOfWeek(DayOfWeek.Thursday).AddHours(hour);
-            break;
-          case "Friday":
-            date = DateTime.Now.StartOfWeek(DayOfWeek.Friday).AddHours(hour);
-            break;
-          case "Saturday":
-            date = DateTime.Now.StartOfWeek(DayOfWeek.Saturday).AddHours(hour);
-            break;
-          case "Sunday":
-            date = DateTime.Now.StartOfWeek(DayOfWeek.Sunday).AddHours(hour);
-            break;
-          default:
-            DayOfWeek day = (DayOfWeek) DateTime.Today.Day;
-            date = DateTime.Now.StartOfWeek(day);
-            break;
+      else {
+        switch(days) {
+          case "Monday":    date = DateTime.Now.StartOfWeek( DayOfWeek.Monday).AddHours(hour);               break;
+          case "Tuesday":   date = DateTime.Now.StartOfWeek( DayOfWeek.Tuesday).AddHours(hour);              break;
+          case "Wednesday": date = DateTime.Now.StartOfWeek( DayOfWeek.Wednesday).AddHours(hour);            break;
+          case "Thursday":  date = DateTime.Now.StartOfWeek( DayOfWeek.Thursday).AddHours(hour);             break;
+          case "Friday":    date = DateTime.Now.StartOfWeek( DayOfWeek.Friday).AddHours(hour);               break;
+          case "Saturday":  date = DateTime.Now.StartOfWeek( DayOfWeek.Saturday).AddHours(hour);             break;
+          case "Sunday":    date = DateTime.Now.StartOfWeek( DayOfWeek.Sunday).AddHours(hour);               break;
+          default:          date = DateTime.Now.StartOfWeek( ( DayOfWeek)DateTime.Today.Day).AddHours(hour); break;
         }
 
         TimeSpan nextDay = date.Subtract(DateTime.Now);
@@ -88,12 +58,11 @@ namespace LaunchBoi
     }
   }
 
-  // extension method 
-  // https://stackoverflow.com/questions/38039/how-can-i-get-the-datetime-for-the-start-of-the-week
+  /// extension method to get the current day of the week
+  /// https://stackoverflow.com/questions/38039/how-can-i-get-the-datetime-for-the-start-of-the-week
   public static class DateTimeExtensions
   {
-    public static DateTime StartOfWeek(this DateTime dt, DayOfWeek startOfWeek)
-    {
+    public static DateTime StartOfWeek(this DateTime dt, DayOfWeek startOfWeek) {
       int diff = (7 + (dt.DayOfWeek - startOfWeek)) % 7;
       return dt.AddDays(-1 * diff).Date;
     }

@@ -316,46 +316,51 @@ namespace LaunchBoi
             !string.IsNullOrEmpty( redColorText.Text    )  &&
             !string.IsNullOrEmpty( greenColorText.Text  )  &&
             !string.IsNullOrEmpty( blueColorText.Text   )) {
-          AppStats newApp    = new AppStats();
-          newApp.appName     = appNameTextBox.Text;
-          newApp.appPath     = pathTextBox.Text;
-          newApp.appColor    = Color.FromArgb(Convert.ToInt32(redColorText.Text),
+          AppStats newApp      = new AppStats();
+          newApp.appName       = appNameTextBox.Text;
+          newApp.appPath       = pathTextBox.Text;
+          newApp.appColor      = Color.FromArgb(Convert.ToInt32(redColorText.Text),
                                               Convert.ToInt32(greenColorText.Text), 
                                               Convert.ToInt32(blueColorText.Text));
 
           if(!string.IsNullOrEmpty(dayComboBox.Text) && !string.IsNullOrEmpty(hourComboBox.Text)) {
-            newApp.days = dayComboBox.Text;
-            newApp.hour = Convert.ToInt32( hourComboBox.Text);
-
+            newApp.days        = dayComboBox.Text;
+            newApp.hour        = Convert.ToInt32( hourComboBox.Text);
             newApp.appTime     = null;
             newApp.appInterval = null;
           }
           else {
             newApp.appTime     = timeComboBox.Text;
             newApp.appInterval = intervalComboBox.Text;
-
-            newApp.days = null;
+            newApp.days        = null;
           }
 
           appList.Add(newApp);
+          Save_Apps_to_JSON();
+          Load_App_Buttons();
         }
       }
       else {
-        appList[globalIndex].appName     = appNameTextBox.Text;
-        appList[globalIndex].appPath     = pathTextBox.Text;
-        appList[globalIndex].appColor    = Color.FromArgb(Convert.ToInt32(redColorText.Text),
-                                                          Convert.ToInt32(greenColorText.Text),
-                                                          Convert.ToInt32(blueColorText.Text));
+        if (!string.IsNullOrEmpty(appNameTextBox.Text) &&
+            !string.IsNullOrEmpty(pathTextBox.Text)    &&
+            !string.IsNullOrEmpty(redColorText.Text)   &&
+            !string.IsNullOrEmpty(greenColorText.Text) &&
+            !string.IsNullOrEmpty(blueColorText.Text)) {
+          appList[globalIndex].appName     = appNameTextBox.Text;
+          appList[globalIndex].appPath     = pathTextBox.Text;
+          appList[globalIndex].appColor    = Color.FromArgb(Convert.ToInt32(redColorText.Text),
+                                                            Convert.ToInt32(greenColorText.Text),
+                                                            Convert.ToInt32(blueColorText.Text));
+          appList[globalIndex].appTime     = timeComboBox.Text;
+          appList[globalIndex].appInterval = intervalComboBox.Text;
+          appList[globalIndex].hour        = Convert.ToInt32(hourComboBox.Text);
+          appList[globalIndex].days        = dayComboBox.Text;
+          appList[globalIndex].jsonData    = dataTextOutput.Text;
 
-        appList[globalIndex].appTime     = timeComboBox.Text;
-        appList[globalIndex].appInterval = intervalComboBox.Text;
-        appList[globalIndex].hour        = Convert.ToInt32(hourComboBox.Text);
-        appList[globalIndex].days        = dayComboBox.Text;
-
-        appList[globalIndex].jsonData    = dataTextOutput.Text;
+          Save_Apps_to_JSON();
+          Load_App_Buttons();
+        }
       }
-      Save_Apps_to_JSON();
-      Load_App_Buttons();
     }
 
     static List<AppStats> Load_App_Stats_From_JSON()
@@ -377,10 +382,9 @@ namespace LaunchBoi
       string red_string    =  redColorText.Text;
       string blue_string   =  blueColorText.Text;
       string green_string  =  greenColorText.Text;
-
-      int red    =  0;
-      int blue   =  0;
-      int green  =  0;
+      int    red           =  0;
+      int    blue          =  0;
+      int    green         =  0;
 
       if(!string.IsNullOrEmpty(red_string) && Regex.IsMatch(red_string, "^[0-9]+$"))
         red = Convert.ToInt32(red_string);

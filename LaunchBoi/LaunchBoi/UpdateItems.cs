@@ -1,4 +1,9 @@
-﻿using System;
+﻿/// Programmer : Jonas Smith
+/// Purpose    : Gives controls and minor details that need to be seperated from the base
+///               Appstats controls/classes when they are updated.
+
+
+using System;
 using System.Windows.Forms;
 
 namespace LaunchBoi

@@ -1,0 +1,14 @@
+C:\Users\Jonas\Desktop\gitProj\CreateZendeskDeals\CreateZendeskDeal\CreateZendeskDeal\bin\Debug\CreateZendeskDeal.exe.config
+C:\Users\Jonas\Desktop\gitProj\CreateZendeskDeals\CreateZendeskDeal\CreateZendeskDeal\bin\Debug\CreateZendeskDeal.exe
+C:\Users\Jonas\Desktop\gitProj\CreateZendeskDeals\CreateZendeskDeal\CreateZendeskDeal\bin\Debug\CreateZendeskDeal.pdb
+C:\Users\Jonas\Desktop\gitProj\CreateZendeskDeals\CreateZendeskDeal\CreateZendeskDeal\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Jonas\Desktop\gitProj\CreateZendeskDeals\CreateZendeskDeal\CreateZendeskDeal\bin\Debug\RestSharp.dll
+C:\Users\Jonas\Desktop\gitProj\CreateZendeskDeals\CreateZendeskDeal\CreateZendeskDeal\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Jonas\Desktop\gitProj\CreateZendeskDeals\CreateZendeskDeal\CreateZendeskDeal\bin\Debug\RestSharp.xml
+C:\Users\Jonas\Desktop\gitProj\CreateZendeskDeals\CreateZendeskDeal\CreateZendeskDeal\obj\Debug\CreateZendeskDeal.csproj.CoreCompileInputs.cache
+C:\Users\Jonas\Desktop\gitProj\CreateZendeskDeals\CreateZendeskDeal\CreateZendeskDeal\obj\Debug\CreateZendeskDeal.csproj.CopyComplete
+C:\Users\Jonas\Desktop\gitProj\CreateZendeskDeals\CreateZendeskDeal\CreateZendeskDeal\obj\Debug\CreateZendeskDeal.exe
+C:\Users\Jonas\Desktop\gitProj\CreateZendeskDeals\CreateZendeskDeal\CreateZendeskDeal\obj\Debug\CreateZendeskDeal.pdb
+C:\Users\Jonas\Desktop\gitProj\CreateZendeskDeals\CreateZendeskDeal\CreateZendeskDeal\obj\Debug\CreateZendeskDeal.csprojAssemblyReference.cache
+C:\Users\Jonas\Desktop\gitProj\CreateZendeskDeals\CreateZendeskDeal\CreateZendeskDeal\obj\Debug\CreateZendeskDeal.Properties.Resources.resources
+C:\Users\Jonas\Desktop\gitProj\CreateZendeskDeals\CreateZendeskDeal\CreateZendeskDeal\obj\Debug\CreateZendeskDeal.csproj.GenerateResource.cache

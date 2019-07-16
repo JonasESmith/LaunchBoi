@@ -348,14 +348,28 @@ namespace LaunchBoi
             !string.IsNullOrEmpty(blueColorText.Text)) {
           appList[globalIndex].appName     = appNameTextBox.Text;
           appList[globalIndex].appPath     = pathTextBox.Text;
-          appList[globalIndex].appColor    = Color.FromArgb(Convert.ToInt32(redColorText.Text),
-                                                            Convert.ToInt32(greenColorText.Text),
-                                                            Convert.ToInt32(blueColorText.Text));
+
           appList[globalIndex].appTime     = timeComboBox.Text;
           appList[globalIndex].appInterval = intervalComboBox.Text;
           appList[globalIndex].hour        = Convert.ToInt32(hourComboBox.Text);
           appList[globalIndex].days        = dayComboBox.Text;
           appList[globalIndex].jsonData    = dataTextOutput.Text;
+
+          string red_string    =  redColorText.Text;
+          string blue_string   =  blueColorText.Text;
+          string green_string  =  greenColorText.Text;
+          int    red           =  0;
+          int    blue          =  0;
+          int    green         =  0;
+
+          if ( !string.IsNullOrEmpty( red_string)   && Regex.IsMatch(red_string,   "^[0-9]+$" )) red   = Convert.ToInt32(red_string); 
+          if ( !string.IsNullOrEmpty( green_string) && Regex.IsMatch(green_string, "^[0-9]+$" )) green = Convert.ToInt32(green_string); 
+          if ( !string.IsNullOrEmpty( blue_string ) && Regex.IsMatch(blue_string,  "^[0-9]+$" )) blue  = Convert.ToInt32(blue_string); 
+          if ( red   > 255 ) red   = 0; 
+          if ( green > 255 ) green = 0; 
+          if ( blue  > 255 ) blue  = 0; 
+
+          ColorPanel.BackColor = Color.FromArgb(red, green, blue);
 
           Save_Apps_to_JSON();
           Load_App_Buttons();
@@ -379,12 +393,12 @@ namespace LaunchBoi
 
     private void TextBox1_TextChanged(object sender, EventArgs e)
     {
-      string red_string    =  redColorText.Text;
-      string blue_string   =  blueColorText.Text;
-      string green_string  =  greenColorText.Text;
-      int    red           =  0;
-      int    blue          =  0;
-      int    green         =  0;
+      string red_string   = redColorText.Text;
+      string blue_string  = blueColorText.Text;
+      string green_string = greenColorText.Text;
+      int    red          = 0;
+      int    blue         = 0;
+      int    green        = 0;
 
       if(!string.IsNullOrEmpty(red_string) && Regex.IsMatch(red_string, "^[0-9]+$"))
         red = Convert.ToInt32(red_string);

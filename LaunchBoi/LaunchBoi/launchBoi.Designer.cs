@@ -59,9 +59,14 @@
       this.panel6 = new System.Windows.Forms.Panel();
       this.panel5 = new System.Windows.Forms.Panel();
       this.middleAddNewAppPanel = new System.Windows.Forms.Panel();
+      this.dayComboBox = new System.Windows.Forms.ComboBox();
+      this.atLabel = new System.Windows.Forms.Label();
+      this.orLabel = new System.Windows.Forms.Label();
+      this.panel12 = new System.Windows.Forms.Panel();
       this.intervalComboBox = new System.Windows.Forms.ComboBox();
       this.timeComboBox = new System.Windows.Forms.ComboBox();
       this.intervalLabel = new System.Windows.Forms.Label();
+      this.hourComboBox = new System.Windows.Forms.ComboBox();
       this.middleRightBufferPanel = new System.Windows.Forms.Panel();
       this.middleLeftBufferPanel = new System.Windows.Forms.Panel();
       this.panel3 = new System.Windows.Forms.Panel();
@@ -77,11 +82,9 @@
       this.leftPaddingPanel = new System.Windows.Forms.Panel();
       this.topBufferPanel = new System.Windows.Forms.Panel();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-      this.panel12 = new System.Windows.Forms.Panel();
-      this.orLabel = new System.Windows.Forms.Label();
-      this.hourComboBox = new System.Windows.Forms.ComboBox();
-      this.dayComboBox = new System.Windows.Forms.ComboBox();
-      this.atLabel = new System.Windows.Forms.Label();
+      this.tabPages = new System.Windows.Forms.TabControl();
+      this.tabPage1 = new System.Windows.Forms.TabPage();
+      this.tabPage2 = new System.Windows.Forms.TabPage();
       this.leftNavPanel.SuspendLayout();
       this.AddNewAppPanel.SuspendLayout();
       this.addAppPanel.SuspendLayout();
@@ -94,6 +97,8 @@
       this.middleAddNewAppPanel.SuspendLayout();
       this.panel2.SuspendLayout();
       this.AddNewPathNamePanel.SuspendLayout();
+      this.tabPages.SuspendLayout();
+      this.tabPage2.SuspendLayout();
       this.SuspendLayout();
       // 
       // leftNavPanel
@@ -147,7 +152,7 @@
       // 
       // addNewAppBottomPanel
       // 
-      this.addNewAppBottomPanel.Controls.Add(this.dataTextOutput);
+      this.addNewAppBottomPanel.Controls.Add(this.tabPages);
       this.addNewAppBottomPanel.Controls.Add(this.panel1);
       this.addNewAppBottomPanel.Controls.Add(this.rightTextBoxPadding);
       this.addNewAppBottomPanel.Controls.Add(this.leftTextBoxPadding);
@@ -159,11 +164,12 @@
       // 
       // dataTextOutput
       // 
+      this.dataTextOutput.BorderStyle = System.Windows.Forms.BorderStyle.None;
       this.dataTextOutput.Dock = System.Windows.Forms.DockStyle.Fill;
       this.dataTextOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.dataTextOutput.Location = new System.Drawing.Point(119, 0);
+      this.dataTextOutput.Location = new System.Drawing.Point(3, 3);
       this.dataTextOutput.Name = "dataTextOutput";
-      this.dataTextOutput.Size = new System.Drawing.Size(766, 476);
+      this.dataTextOutput.Size = new System.Drawing.Size(752, 444);
       this.dataTextOutput.TabIndex = 0;
       this.dataTextOutput.Text = "";
       // 
@@ -415,6 +421,55 @@
       this.middleAddNewAppPanel.Size = new System.Drawing.Size(766, 30);
       this.middleAddNewAppPanel.TabIndex = 16;
       // 
+      // dayComboBox
+      // 
+      this.dayComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.dayComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.dayComboBox.FormattingEnabled = true;
+      this.dayComboBox.Items.AddRange(new object[] {
+            "Everyday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"});
+      this.dayComboBox.Location = new System.Drawing.Point(449, 0);
+      this.dayComboBox.Name = "dayComboBox";
+      this.dayComboBox.Size = new System.Drawing.Size(228, 28);
+      this.dayComboBox.TabIndex = 13;
+      // 
+      // atLabel
+      // 
+      this.atLabel.Dock = System.Windows.Forms.DockStyle.Right;
+      this.atLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.atLabel.Location = new System.Drawing.Point(677, 0);
+      this.atLabel.Name = "atLabel";
+      this.atLabel.Size = new System.Drawing.Size(43, 30);
+      this.atLabel.TabIndex = 15;
+      this.atLabel.Text = "@";
+      this.atLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // orLabel
+      // 
+      this.orLabel.Dock = System.Windows.Forms.DockStyle.Left;
+      this.orLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.orLabel.Location = new System.Drawing.Point(351, 0);
+      this.orLabel.Name = "orLabel";
+      this.orLabel.Size = new System.Drawing.Size(98, 30);
+      this.orLabel.TabIndex = 12;
+      this.orLabel.Text = "or launch on";
+      this.orLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // panel12
+      // 
+      this.panel12.Dock = System.Windows.Forms.DockStyle.Left;
+      this.panel12.Location = new System.Drawing.Point(320, 0);
+      this.panel12.Name = "panel12";
+      this.panel12.Size = new System.Drawing.Size(31, 30);
+      this.panel12.TabIndex = 11;
+      // 
       // intervalComboBox
       // 
       this.intervalComboBox.Dock = System.Windows.Forms.DockStyle.Left;
@@ -512,6 +567,40 @@
       this.intervalLabel.Text = "Launch Every";
       this.intervalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       // 
+      // hourComboBox
+      // 
+      this.hourComboBox.Dock = System.Windows.Forms.DockStyle.Right;
+      this.hourComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.hourComboBox.FormattingEnabled = true;
+      this.hourComboBox.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23"});
+      this.hourComboBox.Location = new System.Drawing.Point(720, 0);
+      this.hourComboBox.Name = "hourComboBox";
+      this.hourComboBox.Size = new System.Drawing.Size(46, 28);
+      this.hourComboBox.TabIndex = 14;
+      // 
       // middleRightBufferPanel
       // 
       this.middleRightBufferPanel.Dock = System.Windows.Forms.DockStyle.Right;
@@ -570,7 +659,7 @@
       this.browsePathButton.TabIndex = 4;
       this.browsePathButton.Text = "Browse";
       this.browsePathButton.UseVisualStyleBackColor = true;
-      this.browsePathButton.Click += new System.EventHandler(this.BrowsePathButton_Click);
+      this.browsePathButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BrowsePathButton_MouseDown);
       // 
       // pathTextBox
       // 
@@ -650,88 +739,37 @@
       // 
       this.openFileDialog1.FileName = "openFileDialog1";
       // 
-      // panel12
+      // tabPages
       // 
-      this.panel12.Dock = System.Windows.Forms.DockStyle.Left;
-      this.panel12.Location = new System.Drawing.Point(320, 0);
-      this.panel12.Name = "panel12";
-      this.panel12.Size = new System.Drawing.Size(31, 30);
-      this.panel12.TabIndex = 11;
+      this.tabPages.Controls.Add(this.tabPage1);
+      this.tabPages.Controls.Add(this.tabPage2);
+      this.tabPages.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tabPages.Location = new System.Drawing.Point(119, 0);
+      this.tabPages.Name = "tabPages";
+      this.tabPages.SelectedIndex = 0;
+      this.tabPages.Size = new System.Drawing.Size(766, 476);
+      this.tabPages.TabIndex = 0;
       // 
-      // orLabel
+      // tabPage1
       // 
-      this.orLabel.Dock = System.Windows.Forms.DockStyle.Left;
-      this.orLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.orLabel.Location = new System.Drawing.Point(351, 0);
-      this.orLabel.Name = "orLabel";
-      this.orLabel.Size = new System.Drawing.Size(98, 30);
-      this.orLabel.TabIndex = 12;
-      this.orLabel.Text = "or launch on";
-      this.orLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.tabPage1.Location = new System.Drawing.Point(4, 22);
+      this.tabPage1.Name = "tabPage1";
+      this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPage1.Size = new System.Drawing.Size(758, 450);
+      this.tabPage1.TabIndex = 0;
+      this.tabPage1.Text = "Tasks Completed";
+      this.tabPage1.UseVisualStyleBackColor = true;
       // 
-      // hourComboBox
+      // tabPage2
       // 
-      this.hourComboBox.Dock = System.Windows.Forms.DockStyle.Right;
-      this.hourComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.hourComboBox.FormattingEnabled = true;
-      this.hourComboBox.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23"});
-      this.hourComboBox.Location = new System.Drawing.Point(720, 0);
-      this.hourComboBox.Name = "hourComboBox";
-      this.hourComboBox.Size = new System.Drawing.Size(46, 28);
-      this.hourComboBox.TabIndex = 14;
-      // 
-      // dayComboBox
-      // 
-      this.dayComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.dayComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.dayComboBox.FormattingEnabled = true;
-      this.dayComboBox.Items.AddRange(new object[] {
-            "Everyday",
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"});
-      this.dayComboBox.Location = new System.Drawing.Point(449, 0);
-      this.dayComboBox.Name = "dayComboBox";
-      this.dayComboBox.Size = new System.Drawing.Size(228, 28);
-      this.dayComboBox.TabIndex = 13;
-      // 
-      // atLabel
-      // 
-      this.atLabel.Dock = System.Windows.Forms.DockStyle.Right;
-      this.atLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.atLabel.Location = new System.Drawing.Point(677, 0);
-      this.atLabel.Name = "atLabel";
-      this.atLabel.Size = new System.Drawing.Size(43, 30);
-      this.atLabel.TabIndex = 15;
-      this.atLabel.Text = "@";
-      this.atLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.tabPage2.Controls.Add(this.dataTextOutput);
+      this.tabPage2.Location = new System.Drawing.Point(4, 22);
+      this.tabPage2.Name = "tabPage2";
+      this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPage2.Size = new System.Drawing.Size(758, 450);
+      this.tabPage2.TabIndex = 1;
+      this.tabPage2.Text = "Console Output";
+      this.tabPage2.UseVisualStyleBackColor = true;
       // 
       // mainForm
       // 
@@ -759,6 +797,8 @@
       this.panel2.ResumeLayout(false);
       this.AddNewPathNamePanel.ResumeLayout(false);
       this.AddNewPathNamePanel.PerformLayout();
+      this.tabPages.ResumeLayout(false);
+      this.tabPage2.ResumeLayout(false);
       this.ResumeLayout(false);
 
     }
@@ -818,6 +858,9 @@
     private System.Windows.Forms.ComboBox hourComboBox;
     private System.Windows.Forms.ComboBox dayComboBox;
     private System.Windows.Forms.Label atLabel;
+    private System.Windows.Forms.TabControl tabPages;
+    private System.Windows.Forms.TabPage tabPage1;
+    private System.Windows.Forms.TabPage tabPage2;
   }
 }
 

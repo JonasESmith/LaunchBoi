@@ -51,8 +51,12 @@ namespace LaunchBoi
         updateList[i].countDownLabel.Text = updateList[i].interval.ToString();
 
         if (updateList[i].interval  == zero) {
-          BackgroundWorker worker    = new BackgroundWorker();
-          worker.DoWork             += Worker_DoWork;
+          //RunApplication(appList[i], i);
+          //updateList[i].interval = TimeSpan.FromSeconds(appList[i].getSeconds());
+          //updateList[i].Iterate();
+
+          BackgroundWorker worker = new BackgroundWorker();
+          worker.DoWork += Worker_DoWork;
           worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
           worker.RunWorkerAsync(argument: i);
         }
@@ -88,15 +92,19 @@ namespace LaunchBoi
       startInfo.RedirectStandardOutput = true;
       startInfo.FileName               = app.appPath;
 
-      try {
-        using (Process exeProcess = Process.Start(startInfo)) {
-          while(!exeProcess.StandardOutput.EndOfStream) {
+      try
+      {
+        using (Process exeProcess = Process.Start(startInfo))
+        {
+          while (!exeProcess.StandardOutput.EndOfStream)
+          {
             string line = exeProcess.StandardOutput.ReadLine();
             appList[index].jsonData += line;
           }
         }
       }
-      catch (Exception) {
+      catch (Exception)
+      {
         throw;
       }
 
@@ -265,7 +273,15 @@ namespace LaunchBoi
       greenColorText.Text   = appList[globalIndex].appColor.G.ToString();
       blueColorText.Text    = appList[globalIndex].appColor.B.ToString();
       addAppButton.Text     = "Update App";
-      dataTextOutput.Text   = appList[globalIndex].jsonData;
+
+      dataTextOutput.Text = "";
+      words = appList[globalIndex].jsonData.Split(',');
+      for(int i = 0; i < words.Length; i++) {
+        dataTextOutput.Text += words[i];
+        if(i < words.Length - 1)
+          dataTextOutput.Text += Environment.NewLine;
+      }
+
       hourComboBox.Text     = appList[globalIndex].hour.ToString();
       dayComboBox.Text      = appList[globalIndex].days;
     }
@@ -285,13 +301,6 @@ namespace LaunchBoi
       addAppButton.BackColor                      = Color.FromArgb(209, 209, 209);
       addAppButton.FlatStyle                      = FlatStyle.Flat;
       addAppButton.FlatAppearance.BorderColor     = Color.FromArgb(150, 150, 150);
-    }
-
-    private void BrowsePathButton_Click(object sender, EventArgs e)
-    {
-      DialogResult result = openFileDialog1.ShowDialog();
-      if (result == DialogResult.OK)
-        pathTextBox.Text = openFileDialog1.FileName;
     }
 
     private void MainForm_Resize(object sender, EventArgs e)
@@ -447,6 +456,27 @@ namespace LaunchBoi
       appList.RemoveAt(globalIndex);
       Load_App_Buttons();
       Save_Apps_to_JSON();
+    }
+
+    private void BrowsePathButton_MouseDown(object sender, MouseEventArgs e)
+    {
+      MouseEventArgs mouse = (MouseEventArgs)e;
+
+      switch (mouse.Button)
+      {
+        case MouseButtons.Right:
+          if(!_isNew)
+          RunApplication(appList[globalIndex], globalIndex);
+          break;
+
+        default:
+          {
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+              pathTextBox.Text = openFileDialog1.FileName;
+          }
+          break;
+      }
     }
   }
 }

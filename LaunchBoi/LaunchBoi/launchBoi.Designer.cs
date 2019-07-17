@@ -85,6 +85,7 @@
       this.tabPages = new System.Windows.Forms.TabControl();
       this.tabPage1 = new System.Windows.Forms.TabPage();
       this.tabPage2 = new System.Windows.Forms.TabPage();
+      this.taskCompletedTextBox = new System.Windows.Forms.RichTextBox();
       this.leftNavPanel.SuspendLayout();
       this.AddNewAppPanel.SuspendLayout();
       this.addAppPanel.SuspendLayout();
@@ -98,6 +99,7 @@
       this.panel2.SuspendLayout();
       this.AddNewPathNamePanel.SuspendLayout();
       this.tabPages.SuspendLayout();
+      this.tabPage1.SuspendLayout();
       this.tabPage2.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -752,6 +754,7 @@
       // 
       // tabPage1
       // 
+      this.tabPage1.Controls.Add(this.taskCompletedTextBox);
       this.tabPage1.Location = new System.Drawing.Point(4, 22);
       this.tabPage1.Name = "tabPage1";
       this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -770,6 +773,15 @@
       this.tabPage2.TabIndex = 1;
       this.tabPage2.Text = "Console Output";
       this.tabPage2.UseVisualStyleBackColor = true;
+      // 
+      // taskCompletedTextBox
+      // 
+      this.taskCompletedTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.taskCompletedTextBox.Location = new System.Drawing.Point(3, 3);
+      this.taskCompletedTextBox.Name = "taskCompletedTextBox";
+      this.taskCompletedTextBox.Size = new System.Drawing.Size(752, 444);
+      this.taskCompletedTextBox.TabIndex = 0;
+      this.taskCompletedTextBox.Text = "";
       // 
       // mainForm
       // 
@@ -798,6 +810,7 @@
       this.AddNewPathNamePanel.ResumeLayout(false);
       this.AddNewPathNamePanel.PerformLayout();
       this.tabPages.ResumeLayout(false);
+      this.tabPage1.ResumeLayout(false);
       this.tabPage2.ResumeLayout(false);
       this.ResumeLayout(false);
 
@@ -861,6 +874,7 @@
     private System.Windows.Forms.TabControl tabPages;
     private System.Windows.Forms.TabPage tabPage1;
     private System.Windows.Forms.TabPage tabPage2;
+    private System.Windows.Forms.RichTextBox taskCompletedTextBox;
   }
 }
 

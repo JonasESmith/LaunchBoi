@@ -99,7 +99,10 @@ namespace LaunchBoi
           while (!exeProcess.StandardOutput.EndOfStream)
           {
             string line = exeProcess.StandardOutput.ReadLine();
-            appList[index].jsonData += line;
+            if (line.Contains("**"))
+              appList[index].taskData += line.Replace("**","");
+            else
+              appList[index].jsonData += line;
           }
         }
       }
@@ -264,22 +267,34 @@ namespace LaunchBoi
 
       globalIndex = Convert.ToInt32(words[0]);
 
-      appNameTextBox.Text   = appList[globalIndex].appName;
-      pathTextBox.Text      = appList[globalIndex].appPath;
-      timeComboBox.Text     = appList[globalIndex].appTime;
-      intervalComboBox.Text = appList[globalIndex].appInterval;
-      ColorPanel.BackColor  = appList[globalIndex].appColor;
-      redColorText.Text     = appList[globalIndex].appColor.R.ToString();
-      greenColorText.Text   = appList[globalIndex].appColor.G.ToString();
-      blueColorText.Text    = appList[globalIndex].appColor.B.ToString();
-      addAppButton.Text     = "Update App";
+      appNameTextBox.Text       = appList[globalIndex].appName;
+      pathTextBox.Text          = appList[globalIndex].appPath;
+      timeComboBox.Text         = appList[globalIndex].appTime;
+      intervalComboBox.Text     = appList[globalIndex].appInterval;
+      ColorPanel.BackColor      = appList[globalIndex].appColor;
+      redColorText.Text         = appList[globalIndex].appColor.R.ToString();
+      greenColorText.Text       = appList[globalIndex].appColor.G.ToString();
+      blueColorText.Text        = appList[globalIndex].appColor.B.ToString();
+      addAppButton.Text         = "Update App";
+      taskCompletedTextBox.Text = "";
+      dataTextOutput.Text       = "";
 
-      dataTextOutput.Text = "";
-      words = appList[globalIndex].jsonData.Split(',');
-      for(int i = 0; i < words.Length; i++) {
-        dataTextOutput.Text += words[i];
-        if(i < words.Length - 1)
-          dataTextOutput.Text += Environment.NewLine;
+      if(!string.IsNullOrEmpty(appList[globalIndex].jsonData)) {
+        words = appList[globalIndex].jsonData.Split(',');
+        for(int i = 0; i < words.Length; i++) {
+          dataTextOutput.Text += words[i];
+          if(i < words.Length - 1)
+            dataTextOutput.Text += Environment.NewLine;
+        }
+      }
+
+      if (!string.IsNullOrEmpty(appList[globalIndex].taskData)) {
+        words = appList[globalIndex].taskData.Split(',');
+        for (int i = 0; i < words.Length; i++) {
+          taskCompletedTextBox.Text += words[i];
+          if (i < words.Length - 1)
+            taskCompletedTextBox.Text += Environment.NewLine;
+        }
       }
 
       hourComboBox.Text     = appList[globalIndex].hour.ToString();
@@ -357,12 +372,12 @@ namespace LaunchBoi
             !string.IsNullOrEmpty(blueColorText.Text)) {
           appList[globalIndex].appName     = appNameTextBox.Text;
           appList[globalIndex].appPath     = pathTextBox.Text;
-
           appList[globalIndex].appTime     = timeComboBox.Text;
           appList[globalIndex].appInterval = intervalComboBox.Text;
           appList[globalIndex].hour        = Convert.ToInt32(hourComboBox.Text);
           appList[globalIndex].days        = dayComboBox.Text;
           appList[globalIndex].jsonData    = dataTextOutput.Text;
+          appList[globalIndex].taskData    = taskCompletedTextBox.Text;
 
           string red_string    =  redColorText.Text;
           string blue_string   =  blueColorText.Text;
@@ -437,20 +452,21 @@ namespace LaunchBoi
 
     private void AddNewAppButton_Click(object sender, EventArgs e)
     {
-      deleteAppButton.Visible = false;
-      ColorPanel.BackColor    = SystemColors.Control;
-      _isNew                  = true;
-      appNameTextBox.Text     = "";
-      pathTextBox.Text        = "";
-      timeComboBox.Text       = "";
-      intervalComboBox.Text   = "";
-      redColorText.Text       = "";
-      greenColorText.Text     = "";
-      blueColorText.Text      = "";
-      addAppButton.Text       = "Add App";
-      dataTextOutput.Text     = "";
-      hourComboBox.Text       = "";
-      dayComboBox.Text        = "";
+      deleteAppButton.Visible   = false;
+      ColorPanel.BackColor      = SystemColors.Control;
+      _isNew                    = true;
+      appNameTextBox.Text       = "";
+      pathTextBox.Text          = "";
+      timeComboBox.Text         = "";
+      intervalComboBox.Text     = "";
+      redColorText.Text         = "";
+      greenColorText.Text       = "";
+      blueColorText.Text        = "";
+      addAppButton.Text         = "Add App";
+      dataTextOutput.Text       = "";
+      hourComboBox.Text         = "";
+      dayComboBox.Text          = "";
+      taskCompletedTextBox.Text = "";
     }
 
     private void DeleteAppButton_Click(object sender, EventArgs e)

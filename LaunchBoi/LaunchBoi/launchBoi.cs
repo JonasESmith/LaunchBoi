@@ -396,6 +396,8 @@ namespace LaunchBoi
 
     static void Save_Apps_to_JSON()
     {
+      string someString = JsonConvert.SerializeObject(appList);
+
       Properties.Settings.Default.appJson = JsonConvert.SerializeObject(appList);
       Properties.Settings.Default.Save();
     }

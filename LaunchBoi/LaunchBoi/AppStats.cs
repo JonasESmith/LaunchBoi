@@ -14,6 +14,7 @@ namespace LaunchBoi
     public string   appTime     { get; set; }
     public string   appInterval { get; set; }
     public string   jsonData    { get; set; }
+    public string   taskData    { get; set; }
     public Color    appColor    { get; set; }
     public DateTime date        { get; set; }
     public int      hour        { get; set; }

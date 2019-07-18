@@ -58,10 +58,7 @@ namespace LaunchBoi
         }
       }
 
-      if(timeToSave == 0) {
-        timeToSave = 60;
-        Save_Apps_to_JSON();
-      }
+      if(timeToSave == 0) { timeToSave = 60; Save_Apps_to_JSON(); }
     }
 
     private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -104,6 +101,10 @@ namespace LaunchBoi
       return true;
     }
 
+
+    /**************************************************/
+    /*      Loading basic buttons for nav Panel       */
+    /**************************************************/
     public void Load_App_Buttons()
     {
       appsRunningPanel.Controls.Clear();
@@ -325,17 +326,17 @@ namespace LaunchBoi
     private void AddAppButton_Click(object sender, EventArgs e)
     {
       if(_isNew) {
-        if( !string.IsNullOrEmpty( appNameTextBox.Text  )  && 
-            !string.IsNullOrEmpty( pathTextBox.Text     )  && 
-            !string.IsNullOrEmpty( redColorText.Text    )  &&
-            !string.IsNullOrEmpty( greenColorText.Text  )  &&
-            !string.IsNullOrEmpty( blueColorText.Text   )) {
-          AppStats newApp      = new AppStats();
-          newApp.appName       = appNameTextBox.Text;
-          newApp.appPath       = pathTextBox.Text;
-          newApp.appColor      = Color.FromArgb(Convert.ToInt32(redColorText.Text),
-                                              Convert.ToInt32(greenColorText.Text), 
-                                              Convert.ToInt32(blueColorText.Text));
+        if( !string.IsNullOrEmpty( appNameTextBox.Text )  && 
+            !string.IsNullOrEmpty( pathTextBox.Text )     && 
+            !string.IsNullOrEmpty( redColorText.Text )    &&
+            !string.IsNullOrEmpty( greenColorText.Text )  &&
+            !string.IsNullOrEmpty( blueColorText.Text ))  {
+            AppStats newApp      = new AppStats();
+            newApp.appName       = appNameTextBox.Text;
+            newApp.appPath       = pathTextBox.Text;
+            newApp.appColor      = Color.FromArgb(Convert.ToInt32( redColorText.Text),
+                                                  Convert.ToInt32( greenColorText.Text), 
+                                                  Convert.ToInt32( blueColorText.Text));
 
           if(!string.IsNullOrEmpty(dayComboBox.Text) && !string.IsNullOrEmpty(hourComboBox.Text)) {
             newApp.days        = dayComboBox.Text;
@@ -401,8 +402,6 @@ namespace LaunchBoi
 
     static void Save_Apps_to_JSON()
     {
-      string someString = JsonConvert.SerializeObject(appList);
-
       Properties.Settings.Default.appJson = JsonConvert.SerializeObject(appList);
       Properties.Settings.Default.Save();
     }

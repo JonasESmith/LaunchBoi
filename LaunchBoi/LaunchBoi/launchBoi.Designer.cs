@@ -776,6 +776,7 @@
       // 
       // taskCompletedTextBox
       // 
+      this.taskCompletedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
       this.taskCompletedTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
       this.taskCompletedTextBox.Location = new System.Drawing.Point(3, 3);
       this.taskCompletedTextBox.Name = "taskCompletedTextBox";

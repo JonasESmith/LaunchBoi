@@ -51,12 +51,8 @@ namespace LaunchBoi
         updateList[i].countDownLabel.Text = updateList[i].interval.ToString();
 
         if (updateList[i].interval  == zero) {
-          //RunApplication(appList[i], i);
-          //updateList[i].interval = TimeSpan.FromSeconds(appList[i].getSeconds());
-          //updateList[i].Iterate();
-
-          BackgroundWorker worker = new BackgroundWorker();
-          worker.DoWork += Worker_DoWork;
+          BackgroundWorker worker    = new BackgroundWorker();
+          worker.DoWork             += Worker_DoWork;
           worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
           worker.RunWorkerAsync(argument: i);
         }
@@ -71,7 +67,6 @@ namespace LaunchBoi
     private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
     {
       int i = (int) e.Result;
-
       updateList[i].interval = TimeSpan.FromSeconds(appList[i].getSeconds());
       updateList[i].Iterate();
     }
@@ -79,7 +74,6 @@ namespace LaunchBoi
     private void Worker_DoWork(object sender, DoWorkEventArgs e)
     {
       int i = (int)e.Argument;
-
       RunApplication(appList[i], i);
       e.Result = i;
     }
@@ -92,12 +86,9 @@ namespace LaunchBoi
       startInfo.RedirectStandardOutput = true;
       startInfo.FileName               = app.appPath;
 
-      try
-      {
-        using (Process exeProcess = Process.Start(startInfo))
-        {
-          while (!exeProcess.StandardOutput.EndOfStream)
-          {
+      try {
+        using (Process exeProcess = Process.Start(startInfo)) {
+          while (!exeProcess.StandardOutput.EndOfStream) {
             string line = exeProcess.StandardOutput.ReadLine();
             if (line.Contains("**"))
               appList[index].taskData += line.Replace("**","");
@@ -106,8 +97,7 @@ namespace LaunchBoi
           }
         }
       }
-      catch (Exception)
-      {
+      catch (Exception) {
         throw;
       }
 
@@ -170,13 +160,11 @@ namespace LaunchBoi
 
         Label timeLabel      = new Label();
         timeLabel.Name       = i.ToString() + ",timeLabel";
-        timeLabel.Text       = "00:00:00";
         timeLabel.Dock       = DockStyle.Right;
         timeLabel.AutoSize   = false;
         timeLabel.Width      = 60;
         timeLabel.Click     += AppPanel_Click;
         timeLabel.TextAlign  = ContentAlignment.MiddleCenter;
-
 
         topAppBar.Controls.Add(nameLabel);
         topAppBar.Controls.Add(padingPanel);
@@ -256,22 +244,18 @@ namespace LaunchBoi
         appsRunningPanel.Controls.Add(appPanel);
       }
     }
-
     private void AppPanel_Click(object sender, EventArgs e)
     {
-      deleteAppButton.Visible = true;
-
-      _isNew          = false;
-      Label label     = sender as Label;
-      string[] words  = label.Name.Split(',');
-
-      globalIndex = Convert.ToInt32(words[0]);
-
+      deleteAppButton.Visible   = true;
+      _isNew                    = false;
+      Label label               = sender as Label;
+      string[] words            = label.Name.Split(',');
+      globalIndex               = Convert.ToInt32(words[0]);
       appNameTextBox.Text       = appList[globalIndex].appName;
       pathTextBox.Text          = appList[globalIndex].appPath;
       timeComboBox.Text         = appList[globalIndex].appTime;
-      intervalComboBox.Text     = appList[globalIndex].appInterval;
       ColorPanel.BackColor      = appList[globalIndex].appColor;
+      intervalComboBox.Text     = appList[globalIndex].appInterval;
       redColorText.Text         = appList[globalIndex].appColor.R.ToString();
       greenColorText.Text       = appList[globalIndex].appColor.G.ToString();
       blueColorText.Text        = appList[globalIndex].appColor.B.ToString();
@@ -305,7 +289,8 @@ namespace LaunchBoi
     {
       leftNavPanel.BackColor                     = Color.FromArgb(209, 209, 209);
 
-      addNewAppButton.BackColor                  = Color.FromArgb(209, 209, 209);
+      addNewAppButton.FlatAppearance.BorderSize  = 0;
+      addNewAppButton.BackColor                  = SystemColors.Control;
       addNewAppButton.FlatStyle                  = FlatStyle.Flat;
       addNewAppButton.FlatAppearance.BorderColor = Color.FromArgb(150, 150, 150);
 
@@ -318,6 +303,11 @@ namespace LaunchBoi
       addAppButton.FlatAppearance.BorderColor     = Color.FromArgb(150, 150, 150);
     }
 
+    /// <summary>
+    /// This actually is not necessary any longer as I can just use a tableLayoutPanel :(
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void MainForm_Resize(object sender, EventArgs e)
     {
       middleRightBufferPanel.Width = (int)Math.Ceiling(addAppPanel.Width * 0.1);
@@ -468,6 +458,7 @@ namespace LaunchBoi
       dayComboBox.Text          = "";
       taskCompletedTextBox.Text = "";
     }
+
 
     private void DeleteAppButton_Click(object sender, EventArgs e)
     {

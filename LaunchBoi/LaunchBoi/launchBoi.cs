@@ -47,14 +47,20 @@ namespace LaunchBoi
 
 
       for (int i = 0; i < updateList.Count; i++) {
-        updateList[i].interval            = updateList[i].interval.Subtract(second);
-        updateList[i].countDownLabel.Text = updateList[i].interval.ToString();
+        if(appList[i].isEnabled) {
+          updateList[i].interval            = updateList[i].interval.Subtract(second);
+          updateList[i].countDownLabel.Text = updateList[i].interval.ToString();
 
-        if (updateList[i].interval  == zero) {
-          BackgroundWorker worker    = new BackgroundWorker();
-          worker.DoWork             += Worker_DoWork;
-          worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
-          worker.RunWorkerAsync(argument: i);
+          if (updateList[i].interval  == zero) {
+            BackgroundWorker worker    = new BackgroundWorker();
+            worker.DoWork             += Worker_DoWork;
+            worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
+            worker.RunWorkerAsync(argument: i);
+          }
+        }
+        else {
+
+          updateList[i].countDownLabel.Text = "Paused";
         }
       }
 
@@ -260,6 +266,7 @@ namespace LaunchBoi
       redColorText.Text         = appList[globalIndex].appColor.R.ToString();
       greenColorText.Text       = appList[globalIndex].appColor.G.ToString();
       blueColorText.Text        = appList[globalIndex].appColor.B.ToString();
+      enabledTaskCheck.Checked  = appList[globalIndex].isEnabled;
       addAppButton.Text         = "Update App";
       taskCompletedTextBox.Text = "";
       dataTextOutput.Text       = "";
@@ -288,12 +295,12 @@ namespace LaunchBoi
 
     public void Load_Styles()
     {
-      leftNavPanel.BackColor                     = Color.FromArgb(209, 209, 209);
-
-      addNewAppButton.FlatAppearance.BorderSize  = 0;
-      addNewAppButton.BackColor                  = SystemColors.Control;
-      addNewAppButton.FlatStyle                  = FlatStyle.Flat;
-      addNewAppButton.FlatAppearance.BorderColor = Color.FromArgb(150, 150, 150);
+      leftNavPanel.BackColor                      = Color.FromArgb(209, 209, 209);
+                                                  
+      addNewAppButton.FlatAppearance.BorderSize   = 0;
+      addNewAppButton.BackColor                   = SystemColors.Control;
+      addNewAppButton.FlatStyle                   = FlatStyle.Flat;
+      addNewAppButton.FlatAppearance.BorderColor  = Color.FromArgb(150, 150, 150);
 
       browsePathButton.BackColor                  = Color.FromArgb(209, 209, 209);
       browsePathButton.FlatStyle                  = FlatStyle.Flat;
@@ -334,6 +341,7 @@ namespace LaunchBoi
             AppStats newApp      = new AppStats();
             newApp.appName       = appNameTextBox.Text;
             newApp.appPath       = pathTextBox.Text;
+            newApp.isEnabled     = enabledTaskCheck.Checked;
             newApp.appColor      = Color.FromArgb(Convert.ToInt32( redColorText.Text),
                                                   Convert.ToInt32( greenColorText.Text), 
                                                   Convert.ToInt32( blueColorText.Text));
@@ -369,6 +377,7 @@ namespace LaunchBoi
           appList[globalIndex].days        = dayComboBox.Text;
           appList[globalIndex].jsonData    = dataTextOutput.Text;
           appList[globalIndex].taskData    = taskCompletedTextBox.Text;
+          appList[globalIndex].isEnabled   = enabledTaskCheck.Checked;
 
           string red_string    =  redColorText.Text;
           string blue_string   =  blueColorText.Text;

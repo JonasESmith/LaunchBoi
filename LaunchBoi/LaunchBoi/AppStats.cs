@@ -18,6 +18,7 @@ namespace LaunchBoi
     public Color    appColor    { get; set; }
     public DateTime date        { get; set; }
     public int      hour        { get; set; }
+    public bool     isEnabled   { get; set; }
 
 
     public int getSeconds()

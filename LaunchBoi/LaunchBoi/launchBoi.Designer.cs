@@ -35,6 +35,10 @@
       this.addNewAppButton = new System.Windows.Forms.Button();
       this.addAppPanel = new System.Windows.Forms.Panel();
       this.addNewAppBottomPanel = new System.Windows.Forms.Panel();
+      this.tabPages = new System.Windows.Forms.TabControl();
+      this.tabPage1 = new System.Windows.Forms.TabPage();
+      this.taskCompletedTextBox = new System.Windows.Forms.RichTextBox();
+      this.tabPage2 = new System.Windows.Forms.TabPage();
       this.dataTextOutput = new System.Windows.Forms.RichTextBox();
       this.panel1 = new System.Windows.Forms.Panel();
       this.panel10 = new System.Windows.Forms.Panel();
@@ -82,14 +86,14 @@
       this.leftPaddingPanel = new System.Windows.Forms.Panel();
       this.topBufferPanel = new System.Windows.Forms.Panel();
       this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-      this.tabPages = new System.Windows.Forms.TabControl();
-      this.tabPage1 = new System.Windows.Forms.TabPage();
-      this.tabPage2 = new System.Windows.Forms.TabPage();
-      this.taskCompletedTextBox = new System.Windows.Forms.RichTextBox();
+      this.enabledTaskCheck = new System.Windows.Forms.CheckBox();
       this.leftNavPanel.SuspendLayout();
       this.AddNewAppPanel.SuspendLayout();
       this.addAppPanel.SuspendLayout();
       this.addNewAppBottomPanel.SuspendLayout();
+      this.tabPages.SuspendLayout();
+      this.tabPage1.SuspendLayout();
+      this.tabPage2.SuspendLayout();
       this.panel1.SuspendLayout();
       this.panel10.SuspendLayout();
       this.addNewAppTopPanel.SuspendLayout();
@@ -98,9 +102,6 @@
       this.middleAddNewAppPanel.SuspendLayout();
       this.panel2.SuspendLayout();
       this.AddNewPathNamePanel.SuspendLayout();
-      this.tabPages.SuspendLayout();
-      this.tabPage1.SuspendLayout();
-      this.tabPage2.SuspendLayout();
       this.SuspendLayout();
       // 
       // leftNavPanel
@@ -164,6 +165,49 @@
       this.addNewAppBottomPanel.Size = new System.Drawing.Size(984, 538);
       this.addNewAppBottomPanel.TabIndex = 12;
       // 
+      // tabPages
+      // 
+      this.tabPages.Controls.Add(this.tabPage1);
+      this.tabPages.Controls.Add(this.tabPage2);
+      this.tabPages.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tabPages.Location = new System.Drawing.Point(119, 0);
+      this.tabPages.Name = "tabPages";
+      this.tabPages.SelectedIndex = 0;
+      this.tabPages.Size = new System.Drawing.Size(766, 476);
+      this.tabPages.TabIndex = 0;
+      // 
+      // tabPage1
+      // 
+      this.tabPage1.Controls.Add(this.taskCompletedTextBox);
+      this.tabPage1.Location = new System.Drawing.Point(4, 22);
+      this.tabPage1.Name = "tabPage1";
+      this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPage1.Size = new System.Drawing.Size(758, 450);
+      this.tabPage1.TabIndex = 0;
+      this.tabPage1.Text = "Tasks Completed";
+      this.tabPage1.UseVisualStyleBackColor = true;
+      // 
+      // taskCompletedTextBox
+      // 
+      this.taskCompletedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+      this.taskCompletedTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.taskCompletedTextBox.Location = new System.Drawing.Point(3, 3);
+      this.taskCompletedTextBox.Name = "taskCompletedTextBox";
+      this.taskCompletedTextBox.Size = new System.Drawing.Size(752, 444);
+      this.taskCompletedTextBox.TabIndex = 0;
+      this.taskCompletedTextBox.Text = "";
+      // 
+      // tabPage2
+      // 
+      this.tabPage2.Controls.Add(this.dataTextOutput);
+      this.tabPage2.Location = new System.Drawing.Point(4, 22);
+      this.tabPage2.Name = "tabPage2";
+      this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+      this.tabPage2.Size = new System.Drawing.Size(758, 450);
+      this.tabPage2.TabIndex = 1;
+      this.tabPage2.Text = "Console Output";
+      this.tabPage2.UseVisualStyleBackColor = true;
+      // 
       // dataTextOutput
       // 
       this.dataTextOutput.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -187,6 +231,7 @@
       // 
       // panel10
       // 
+      this.panel10.Controls.Add(this.enabledTaskCheck);
       this.panel10.Controls.Add(this.deleteAppButton);
       this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
       this.panel10.Location = new System.Drawing.Point(0, 16);
@@ -741,48 +786,20 @@
       // 
       this.openFileDialog1.FileName = "openFileDialog1";
       // 
-      // tabPages
+      // enabledTaskCheck
       // 
-      this.tabPages.Controls.Add(this.tabPage1);
-      this.tabPages.Controls.Add(this.tabPage2);
-      this.tabPages.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.tabPages.Location = new System.Drawing.Point(119, 0);
-      this.tabPages.Name = "tabPages";
-      this.tabPages.SelectedIndex = 0;
-      this.tabPages.Size = new System.Drawing.Size(766, 476);
-      this.tabPages.TabIndex = 0;
-      // 
-      // tabPage1
-      // 
-      this.tabPage1.Controls.Add(this.taskCompletedTextBox);
-      this.tabPage1.Location = new System.Drawing.Point(4, 22);
-      this.tabPage1.Name = "tabPage1";
-      this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-      this.tabPage1.Size = new System.Drawing.Size(758, 450);
-      this.tabPage1.TabIndex = 0;
-      this.tabPage1.Text = "Tasks Completed";
-      this.tabPage1.UseVisualStyleBackColor = true;
-      // 
-      // tabPage2
-      // 
-      this.tabPage2.Controls.Add(this.dataTextOutput);
-      this.tabPage2.Location = new System.Drawing.Point(4, 22);
-      this.tabPage2.Name = "tabPage2";
-      this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-      this.tabPage2.Size = new System.Drawing.Size(758, 450);
-      this.tabPage2.TabIndex = 1;
-      this.tabPage2.Text = "Console Output";
-      this.tabPage2.UseVisualStyleBackColor = true;
-      // 
-      // taskCompletedTextBox
-      // 
-      this.taskCompletedTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-      this.taskCompletedTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.taskCompletedTextBox.Location = new System.Drawing.Point(3, 3);
-      this.taskCompletedTextBox.Name = "taskCompletedTextBox";
-      this.taskCompletedTextBox.Size = new System.Drawing.Size(752, 444);
-      this.taskCompletedTextBox.TabIndex = 0;
-      this.taskCompletedTextBox.Text = "";
+      this.enabledTaskCheck.AutoSize = true;
+      this.enabledTaskCheck.Checked = true;
+      this.enabledTaskCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+      this.enabledTaskCheck.Dock = System.Windows.Forms.DockStyle.Left;
+      this.enabledTaskCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.enabledTaskCheck.Location = new System.Drawing.Point(0, 0);
+      this.enabledTaskCheck.Name = "enabledTaskCheck";
+      this.enabledTaskCheck.Size = new System.Drawing.Size(77, 30);
+      this.enabledTaskCheck.TabIndex = 12;
+      this.enabledTaskCheck.Text = "enabled";
+      this.enabledTaskCheck.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.enabledTaskCheck.UseVisualStyleBackColor = true;
       // 
       // mainForm
       // 
@@ -800,8 +817,12 @@
       this.AddNewAppPanel.ResumeLayout(false);
       this.addAppPanel.ResumeLayout(false);
       this.addNewAppBottomPanel.ResumeLayout(false);
+      this.tabPages.ResumeLayout(false);
+      this.tabPage1.ResumeLayout(false);
+      this.tabPage2.ResumeLayout(false);
       this.panel1.ResumeLayout(false);
       this.panel10.ResumeLayout(false);
+      this.panel10.PerformLayout();
       this.addNewAppTopPanel.ResumeLayout(false);
       this.panel7.ResumeLayout(false);
       this.panel7.PerformLayout();
@@ -810,9 +831,6 @@
       this.panel2.ResumeLayout(false);
       this.AddNewPathNamePanel.ResumeLayout(false);
       this.AddNewPathNamePanel.PerformLayout();
-      this.tabPages.ResumeLayout(false);
-      this.tabPage1.ResumeLayout(false);
-      this.tabPage2.ResumeLayout(false);
       this.ResumeLayout(false);
 
     }
@@ -876,6 +894,7 @@
     private System.Windows.Forms.TabPage tabPage1;
     private System.Windows.Forms.TabPage tabPage2;
     private System.Windows.Forms.RichTextBox taskCompletedTextBox;
+    private System.Windows.Forms.CheckBox enabledTaskCheck;
   }
 }
 
